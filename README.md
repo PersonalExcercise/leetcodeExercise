@@ -19,3 +19,9 @@ leetcode exercise
     到每个位置的最小代价，与其左（或右）和其上（下）的点有关。
 
 
+69. 求一个整数的非精确平方根。 int sqrt(int x)
+
+    [detail](src/prob69sqrt.md)
+
+    **二分** ; **分治（减治）** 
+
