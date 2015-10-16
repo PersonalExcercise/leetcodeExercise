@@ -12,7 +12,10 @@ leetcode exercise
 53. 最大子数组和，Maximum Subarray
 
     [detail](src/prob53maxsubarray.md)
+    
+    一道比较有意思的题目。
 
+    **分治** ； **动态规划** ；
      
 
 64. 给定一个代价矩阵，从起点到终点（左右、上下只能取1个方向），求最小代价及相应的路径
