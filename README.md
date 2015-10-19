@@ -9,6 +9,21 @@ leetcode exercise
 
     一定要考虑n 为负的情况！ 一定要考虑n为0的情况。
 
+53. 最大子数组和，Maximum Subarray
+
+    [detail](src/prob53maxsubarray.md)
+    
+    一道比较有意思的题目。
+
+    **分治** ； **动态规划** ；
+
+55. Jump Game ，求能否到达数组的最后一个位置
+    
+    [detail](src/prob55jumpgame.md)
+
+    **贪心** ； **动态规划**
+
+    贪心不简单啊。
 
 64. 给定一个代价矩阵，从起点到终点（左右、上下只能取1个方向），求最小代价及相应的路径
     
@@ -23,5 +38,5 @@ leetcode exercise
 
     [detail](src/prob69sqrt.md)
 
-    **二分** ; **分治（减治）** 
+    **二分** ; **分治（剪枝）** 
 
