@@ -101,6 +101,36 @@ int minCut(string s) {
 ```C++
 f[n] = 0
 f[i] = 0 , if P[i,n] == True
-f[i] = min_{i<= k < n } { f[k+1] + 1 } , if P[i,n] == False
+f[i] = min_{i<= k < n } { f[k+1] + 1 } , if P[i,n] == False && P[i,k] = True
 ```
 
+```C++
+int minCut(string s) {
+    int length = s.length() ;
+    vector<vector<bool> > palindromeTable(length , vector<bool>(length , false)) ;
+    initPalindromeTable(s , palindromeTable) ;
+    
+    vector<int> minCutNums(length , 0 ) ;
+    for( int i = length -2 ; i >= 0 ; --i)
+    {
+        if(palindromeTable[i][length-1])
+        {
+            minCutNums[i] = 0 ;
+            continue ;
+        }
+        int minNums = numeric_limits<int>::max() ;
+        for(int j = i ; j < length -1 ; ++j)
+        {
+            if(palindromeTable[i][j] != true) continue ;
+            int currentCutNums = minCutNums[j+1] ;
+            if(currentCutNums < minNums) minNums = currentCutNums ;
+        }
+        minCutNums[i] = minNums + 1 ;
+    }
+    return minCutNums[0] ;
+}
+```
+
+啊，终于AC了，好开心~ 不过运行时间达到136ms，只击败了13.90%的提交（啊，怎么感觉说这句话很...SB呢），还是说明代码速度很需要提高啊。
+
+也不知道为什么，好像写出来的代码运行时间上都比较长，不知是哪里出了问题。
