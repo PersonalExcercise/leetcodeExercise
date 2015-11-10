@@ -97,3 +97,106 @@ public:
     }
 };
 ```
+
+很容易想到针对上面的一个优化，就是使用动态规划的方法保存每个位置向上的连续1的数量，这样就不必一层一层的确认是否都为1了——>可以直接取min高度即为最大构成矩形的高度。后来又突然想到，不用每次都for循环一遍去找该区域的最小值，可以只算本次新加行的高度与之前最小高度的最小值即可。
+
+完了，上面感觉完全说不清楚，还是代码好看懂：
+
+```C++
+class Solution {
+public:
+    int maximalRectangle(vector<vector<char>>& matrix) {
+        // check size
+        int rows = matrix.size() ;
+        if(rows == 0) return 0 ;
+        int cols = matrix[0].size() ;
+        if(cols == 0) return 0 ; // In fact , it shold not be 0 ;
+        // maxArea(i,j) stands for the max area in the matrix (0,0) -> (i,j)
+        vector<vector<int> > maxArea(rows , vector<int>(cols , 0)) ; 
+        vector<vector<int> > maxHeight(rows , vector<int>(cols , 0)) ;
+        // init 
+        // init (0,0)
+        if(matrix[0][0] == '1'){
+            maxArea[0][0] = 1 ;
+            maxHeight[0][0] = 1 ;
+        } 
+        for(int row = 1 ; row < rows ; ++row){
+            if(matrix[row][0] == '0') maxArea[row][0] = maxArea[row-1][0];
+            else
+            {
+                int up_coo = row ; // [up_coo][0] is the highest position which up_coo -> row is all '1'
+                while(up_coo - 1 >= 0 && matrix[up_coo - 1][0] == '1') --up_coo ;
+                maxArea[row][0] = max(row - up_coo + 1 , maxArea[row-1][0] );
+                maxHeight[row][0] = maxHeight[row-1][0] + 1 ;
+            }
+        }
+        for(int col = 1 ; col < cols ; ++col){
+            if(matrix[0][col] == '0') maxArea[0][col] = maxArea[0][col-1] ;
+            else{
+                int left_coo = col ;
+                while((left_coo - 1>= 0 ) && (matrix[0][left_coo - 1] == '1')) --left_coo ;
+                maxArea[0][col] = max(col - left_coo + 1 , maxArea[0][col-1]) ;
+                maxHeight[0][col] = 1 ;
+            }
+        }
+        
+        // Dynamic Programing : left -> right , up -> down
+        for(int row = 1 ; row < rows ; ++row){
+            for(int col = 1 ; col < cols ; ++col ){
+                if(matrix[row][col] == '0') maxArea[row][col] = max(maxArea[row-1][col] , maxArea[row][col-1]) ;
+                else{
+                    maxHeight[row][col] = maxHeight[row-1][col] + 1 ;
+                    // calc the area with matrix[row][col] as the right down corner .
+                    int left_coo = col ; 
+                    int max_area_with_this = 0 ;
+                    int min_height = numeric_limits<int>::max() ;
+                    while(true)
+                    {
+                        // find max height => in fact , to get the min height of every col 
+                        min_height = min(min_height , maxHeight[row][left_coo]) ;
+                        int area = ( col - left_coo + 1 ) * min_height ;
+                        if(area > max_area_with_this) max_area_with_this = area ;
+                        // check left col 
+                        if(left_coo - 1 >= 0 && matrix[row][left_coo - 1] == '1') --left_coo ;
+                        else break ;
+                    }
+                    maxArea[row][col] = max( max(maxArea[row-1][col] , maxArea[row][col-1]) , max_area_with_this) ;
+                }
+            }
+        }
+        for(int i = 0 ; i < rows ; ++i)
+        {
+            for(int j = 0 ; j < cols ; ++j)
+                cout << maxHeight[i][j] << " " ;
+            cout << endl ;
+        }
+            
+        return maxArea[rows-1][cols-1] ;
+    }
+};
+```
+
+最关键的改动就是：
+
+```C++
+while(true)
+{
+    // find max height => in fact , to get the min height of every col 
+    min_height = min(min_height , maxHeight[row][left_coo]) ;
+    int area = ( col - left_coo + 1 ) * min_height ;
+    if(area > max_area_with_this) max_area_with_this = area ;
+    // check left col 
+    if(left_coo - 1 >= 0 && matrix[row][left_coo - 1] == '1') --left_coo ;
+    else break ;
+}
+
+```
+其中`min_height = min(min_height , maxHeight[row][left_coo]) ;`这一行，开始也是用for循环找的，不过后来想到其实可以直接这样二元的比就可以。
+
+代码中`maxHeight[row][0] = maxHeight[row-1][0] + 1 ;`开始写成了`maxHeight[row][0] = maxArea[row-1][0] + 1 ;`，还是通过打LOG找到的。真的是要哭了。
+
+不过终于知道LeetCode原来是可以直接输出的！！输出结果会显示在`stdout`栏，对最终结果也毫不影响，体验实在是太好了。
+
+不过这样改后，时间竟然增加到了424ms！怀疑是打log和多分配一块内存的原因，删除log部分，时间为28ms！果然一下子就提升上去了！！看来打LOG时间开销还是太大了。这样一下子就beats 35.69%的提交了。
+
+然而栈方法又是怎么做的呢？还需要继续学习！ 
