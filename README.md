@@ -40,6 +40,16 @@ leetcode exercise
 
     **二分** ; **分治（剪枝）** 
 
+85. 最大全部为1的矩形面积
+
+    [detail](src/prob85maximalrectangle.md)
+
+    动态规划；
+
+    *Hard*
+
+    还有*栈方法*待完成。
+
 120. 一个三角形从顶到底的最小和。
 
     [detail](src/prob120triangle.md)
