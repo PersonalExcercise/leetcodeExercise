@@ -40,6 +40,12 @@ leetcode exercise
 
     **二分** ; **分治（剪枝）** 
 
+84. 直方图中最大矩形面积
+
+    [detail](src/prob84largestrectangleinhistogram.md)
+
+    **栈方法**
+
 85. 最大全部为1的矩形面积
 
     [detail](src/prob85maximalrectangle.md)
