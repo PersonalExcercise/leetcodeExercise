@@ -64,6 +64,14 @@ leetcode exercise
 
     直观上肯定是自顶向下的做动态规划；但是*如果反过来，从底往上做，一下子就变得清晰简单多了*!
 
+123. 买卖股票赚大钱III
+
+    [detail](src/prob123besttimetobuyandsellstockIII.md)
+
+    **动态规划**（非典型）
+
+    想错了的题！！
+
 132. 回文字符串最小分割
 
     [detail](src/prob132palindromep.md)
