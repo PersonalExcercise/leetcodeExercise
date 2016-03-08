@@ -56,6 +56,14 @@ leetcode exercise
 
     还有*栈方法*待完成。
 
+97.  一个字符串是否有其他两个字符串交叉组合而成
+
+     [detail](src/prob97interleavingstring.md)
+
+     动态规划；
+
+     *Hard*
+
 120. 一个三角形从顶到底的最小和。
 
     [detail](src/prob120triangle.md)
