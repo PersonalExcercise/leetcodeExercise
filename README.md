@@ -40,6 +40,15 @@ leetcode exercise
 
     **二分** ; **分治（剪枝）** 
 
+72. 编辑距离
+
+    [detail](src/prob72editdistance.md)
+
+    **动态规划** ； 
+
+    *经典*
+
+
 84. 直方图中最大矩形面积
 
     [detail](src/prob84largestrectangleinhistogram.md)
@@ -50,11 +59,19 @@ leetcode exercise
 
     [detail](src/prob85maximalrectangle.md)
 
-    动态规划；
+    **动态规划**；
 
     *Hard*
 
     还有*栈方法*待完成。
+
+87. Scramble String
+
+    [detail](src/prob87scramblestring.md)
+
+    **暴力**；**递归**；**三阶动态规划**；**剪枝**；
+
+    *Hard*；
 
 97.  一个字符串是否有其他两个字符串交叉组合而成
 
