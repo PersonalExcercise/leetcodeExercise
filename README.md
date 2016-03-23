@@ -86,6 +86,14 @@ leetcode exercise
 
      *Hard*
 
+115. 计数：与一个串相同的不同子串数量
+
+    [detail](src/prob115distinctsubsequences.md)
+
+    **动态规划** ； 
+
+    **题目不清**；
+
 120. 一个三角形从顶到底的最小和。
 
     [detail](src/prob120triangle.md)
