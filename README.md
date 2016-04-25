@@ -123,3 +123,13 @@ leetcode exercise
     [detail](src/prob139wordbreak.md)
 
     **动态规划**
+
+140. 句子的所有划分结果
+
+    [detail](src/prob140wordbreak2.md)
+
+    **动态规划**
+
+    **深度搜索**
+
+    **生成所有可能结果**
