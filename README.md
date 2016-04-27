@@ -1,6 +1,12 @@
 # leetcodeExercise
 leetcode exercise 
 
+12. 整数转罗马数字
+    
+    [detail](src/prob12integer2roman.md)
+
+    **转换**
+
 50. 求x的n次方 , pow(double x , int n)
 
     [detail](src/prob50pow.md)
