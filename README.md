@@ -7,6 +7,10 @@ leetcode exercise
 
     **转换**
 
+13. 罗马数字转整数
+
+    [detail](src/prob13roman2integer.md)
+
 50. 求x的n次方 , pow(double x , int n)
 
     [detail](src/prob50pow.md)
