@@ -96,6 +96,12 @@ leetcode exercise
 
      *Hard*
 
+98. 验证是否是二叉查找树
+
+    [detail](src/prob98validBST.md)
+
+    **二叉查找树，BST**
+
 115. 计数：与一个串相同的不同子串数量
 
     [detail](src/prob115distinctsubsequences.md)
