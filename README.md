@@ -150,6 +150,14 @@ leetcode exercise
 
     **生成所有可能结果**
 
+145. 二叉树的后序非递归遍历
+
+    [detail](src/prob145BSTpostorder.md)
+
+    **树的后序遍历**
+
+    *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯git agit *
+
 345. 反序句子中的元音字母
 
     [detail](src/prob345reversevowel.md)
