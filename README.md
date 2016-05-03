@@ -1,6 +1,12 @@
 # leetcodeExercise
 leetcode exercise 
 
+2. 两数相加
+    
+    [detail](src/prob2add2numbers.md)
+
+    **链表** *数学*
+
 12. 整数转罗马数字
     
     [detail](src/prob12integer2roman.md)
