@@ -164,6 +164,14 @@ leetcode exercise
 
     *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯git agit *
 
+306. 是否是加数字符串
+
+    **逻辑**
+
+    **数学** ， **加法** ， *大数*
+    
+    [detail](src/prob306additivenumber.md)
+
 345. 反序句子中的元音字母
 
     [detail](src/prob345reversevowel.md)
