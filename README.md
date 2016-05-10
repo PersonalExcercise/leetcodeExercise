@@ -17,6 +17,12 @@ leetcode exercise
 
     [detail](src/prob13roman2integer.md)
 
+26. Unique操作
+
+    **两指针** **unique**
+
+    [detail](src/prob26removeduplicatesfromsortedarray.md)
+
 50. 求x的n次方 , pow(double x , int n)
 
     [detail](src/prob50pow.md)
