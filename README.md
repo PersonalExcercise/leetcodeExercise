@@ -170,6 +170,12 @@ leetcode exercise
 
     *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯git agit *
 
+179. 拼成一个最大数
+
+    [detail](src/prob149largestnumber.md)
+
+    **排序**！！
+
 241. 加括号的不同方法
     
     **分治** **DP<未完成>**
