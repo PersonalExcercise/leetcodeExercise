@@ -17,6 +17,12 @@ leetcode exercise
 
     [detail](src/prob13roman2integer.md)
 
+26. Unique操作
+
+    **两指针** **unique**
+
+    [detail](src/prob26removeduplicatesfromsortedarray.md)
+
 50. 求x的n次方 , pow(double x , int n)
 
     [detail](src/prob50pow.md)
@@ -163,6 +169,18 @@ leetcode exercise
     **树的后序遍历**
 
     *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯git agit *
+
+179. 拼成一个最大数
+
+    [detail](src/prob149largestnumber.md)
+
+    **排序**！！
+
+241. 加括号的不同方法
+    
+    **分治** **DP<未完成>**
+
+    [detail](src/prob241differentwaystoaddparentheses.md)
 
 306. 是否是加数字符串
 
