@@ -175,3 +175,13 @@ leetcode exercise
 345. 反序句子中的元音字母
 
     [detail](src/prob345reversevowel.md)
+
+329. 求矩阵中最长递增序列的长度
+
+    [detail](prob329longestincreasingpathinmatrix.md)
+
+    **拓扑排序**
+
+    **DFS**
+
+    **Memoization**
