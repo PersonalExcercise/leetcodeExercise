@@ -23,6 +23,12 @@ leetcode exercise
 
     [detail](src/prob26removeduplicatesfromsortedarray.md)
 
+44. 通配符匹配
+
+    [detail](src/prob44wildcardmatching.md)
+
+    **动态规划** —> 慢
+
 50. 求x的n次方 , pow(double x , int n)
 
     [detail](src/prob50pow.md)
