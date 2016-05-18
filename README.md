@@ -188,6 +188,14 @@ leetcode exercise
 
     [detail](src/prob241differentwaystoaddparentheses.md)
 
+242. 判断一个单词是否是另一个单词的易位构词(anagram)
+
+    **hash_table**计数
+
+    **排序** ！！
+
+    [detail](src/prob242validanagram.md)
+
 306. 是否是加数字符串
 
     **逻辑**
