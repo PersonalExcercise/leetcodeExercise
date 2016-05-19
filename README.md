@@ -196,6 +196,12 @@ leetcode exercise
 
     [detail](src/prob242validanagram.md)
 
+290. 判断两个字符串模式是否相同
+
+    **HashTable**
+
+    [detail](src/prob290wordpattern.md)
+
 306. 是否是加数字符串
 
     **逻辑**
