@@ -210,9 +210,6 @@ leetcode exercise
     
     [detail](src/prob306additivenumber.md)
 
-345. 反序句子中的元音字母
-
-    [detail](src/prob345reversevowel.md)
 
 329. 求矩阵中最长递增序列的长度
 
@@ -223,3 +220,13 @@ leetcode exercise
     **DFS**
 
     **Memoization**
+
+334. 是否有 三数递增
+
+    [detail](sec/prob334increasingtriplesubsequence.md)
+
+345. 反序句子中的元音字母
+
+    [detail](src/prob345reversevowel.md)
+
+    **双指针**
