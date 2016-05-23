@@ -202,6 +202,14 @@ leetcode exercise
 
     [detail](src/prob290wordpattern.md)
 
+300. 最长递增子序列 LIS
+
+    **经典**
+
+    **最长递增子序列**
+    
+    [detail](https://leetcode.com/problems/longest-increasing-subsequence/)
+
 306. 是否是加数字符串
 
     **逻辑**
@@ -222,6 +230,8 @@ leetcode exercise
     **Memoization**
 
 334. 是否有 三数递增
+
+    **三数递增**
 
     [detail](sec/prob334increasingtriplesubsequence.md)
 
