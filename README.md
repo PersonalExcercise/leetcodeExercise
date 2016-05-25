@@ -120,6 +120,22 @@ leetcode exercise
 
     **二叉查找树，BST**
 
+108. 有序数组转为平衡的二叉查找树
+
+    [detail](src/prob108convertsortedarray2bst.md)
+
+    **二叉查找树，BST**
+
+    **转换** ， **逆向** ， **数组**
+
+109. 有序链表转为平衡二叉查找树
+
+    [detail](src/prob109convertsortedlist2bst.md)
+
+    **二叉查找树**
+
+    **转换** ， **逆向** ， **中序遍历** ， **链表**
+
 115. 计数：与一个串相同的不同子串数量
 
     [detail](src/prob115distinctsubsequences.md)
