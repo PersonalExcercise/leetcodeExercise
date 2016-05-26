@@ -108,6 +108,7 @@ leetcode exercise
     **暴力**；**递归**；**三阶动态规划**；**剪枝**；
 
     *Hard*；
+
 91. 解码方法数
 
     [detail](src/prob91decodeways.md)
@@ -198,7 +199,16 @@ leetcode exercise
 
     **树的后序遍历**
 
-    *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯git agit *
+    *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯
+
+152. 最大乘积的子数组
+
+    [detail](src/prob152maximumproductsubarray.md)
+
+    **最大XX子数组**
+
+    **动态规划** （模式：以该位置结尾的子序列）
+
 
 179. 拼成一个最大数
 
