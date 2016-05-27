@@ -255,13 +255,23 @@ leetcode exercise
 
 329. 求矩阵中最长递增序列的长度
 
-    [detail](prob329longestincreasingpathinmatrix.md)
+    [detail](src/prob329longestincreasingpathinmatrix.md)
 
     **拓扑排序**
 
     **DFS**
 
     **Memoization**
+
+331. 验证一棵树的先序遍历得到的序列化串是否合法
+
+    [detail](src/prob331verifypreorderserializationofabinarytree.md)
+
+    **先序遍历满足的性质**
+
+    **入度与出度** **巧妙**
+
+    **栈**
 
 334. 是否有 三数递增
 
