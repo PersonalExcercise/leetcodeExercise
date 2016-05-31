@@ -23,6 +23,16 @@ leetcode exercise
 
     [detail](src/prob26removeduplicatesfromsortedarray.md)
 
+35. 确定插入位置
+
+    **二分查找** ； **插入**
+
+    **二分查找违背条件而退出时，必然有`low=high+1`**
+
+    **循环条件是小于等于**
+
+    [detail](src/prob35searchinsertposition.md)
+
 44. 通配符匹配
 
     [detail](src/prob44wildcardmatching.md)
@@ -215,6 +225,17 @@ leetcode exercise
     [detail](src/prob149largestnumber.md)
 
     **排序**！！
+
+191. 二进制数中1的个数/ 汉明重量(Hamming Weight) / popcount
+
+    
+    [detail](src/prob191numberof1bits.md)
+
+    **位操作**
+
+    **有背景的题** **__builtin_popcount/std::bitset<32>**
+
+
 
 200. 海中岛的数量
 
