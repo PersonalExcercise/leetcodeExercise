@@ -1,5 +1,4 @@
 # leetcodeExercise
-leetcode exercise 
 
 2. 两数相加
     
@@ -85,6 +84,12 @@ leetcode exercise
     [detail](src/prob69sqrt.md)
 
     **二分** ; **分治（剪枝）** 
+
+70. 爬梯子的方法
+
+    [detail](src/prob70climbingstairs.md)
+
+    **动态规划** ； **类-斐波拉切**
 
 72. 编辑距离
 

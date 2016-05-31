@@ -1,3 +1,3 @@
-###problem [id] [name]
+# problem [id] [name]
 
 [link]()

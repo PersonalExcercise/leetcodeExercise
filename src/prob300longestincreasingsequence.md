@@ -1,4 +1,4 @@
-###problem 300. Longest Increasing Subsequence
+# problem 300. Longest Increasing Subsequence
 
 [link](https://leetcode.com/problems/longest-increasing-subsequence/)
 
