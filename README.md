@@ -99,6 +99,13 @@
 
     *经典*
 
+80. uniq升级版——允许两次重复
+
+    [detail](src/prob80removeduplicatesfromsortedarraysII.md)
+
+    **双指针**
+
+    **两种思维方式** ， **容器end()调用耗时显著性**
 
 84. 直方图中最大矩形面积
 
