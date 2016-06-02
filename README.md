@@ -124,6 +124,15 @@
 
     *Hard*；
 
+89. Gray Code 生成n位格雷码
+
+    [detail](src/prob89graycode.md)
+
+    **递归**
+
+    **格雷码**
+
+
 91. 解码方法数
 
     [detail](src/prob91decodeways.md)
