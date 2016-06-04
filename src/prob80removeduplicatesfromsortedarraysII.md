@@ -107,8 +107,8 @@ public:
 
 对第二种方法，我写的迭代器版本：
 
- ```C++
- class Solution {
+```C++
+class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         size_t sz = nums.size() ;
@@ -124,7 +124,7 @@ public:
         return rear_iter - nums.begin() + 1 ;
     }
 };
- ```
+```
 
  以上与下标版逻辑完全一致，然而迭代器版本跑了20ms，而下标版只需要16ms
 

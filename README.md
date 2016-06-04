@@ -184,6 +184,14 @@
 
     **题目不清**；
 
+116. 给完全二叉树每个节点找到每层右边的节点
+
+    [detail](src/prob116populatingnextrightpointersineachnode.md)
+
+    **树**
+
+    **类·层序遍历** ； **常量空间**
+
 120. 一个三角形从顶到底的最小和。
 
     [detail](src/prob120triangle.md)
