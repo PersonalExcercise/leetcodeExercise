@@ -32,6 +32,22 @@
 
     [detail](src/prob35searchinsertposition.md)
 
+39. 从集合中找出一些数使得其和为某个值，找出的数集合彼此不能重复
+
+    **递归**
+
+    **回溯**
+
+    [detail](src/prob39combinationsum.md)
+
+40. 从数组中找出一些数，每个数至多选中一次，找出的数集合彼此不能重复
+
+    **递归**
+
+    **回溯**
+
+    [detail](src/prob40combinationsumII.md)
+
 44. 通配符匹配
 
     [detail](src/prob44wildcardmatching.md)
@@ -292,6 +308,14 @@
     **连通路径**
 
     **遍历**
+
+216. 从1-9中找出k个不同的数，使得其和为n
+
+    **递归**
+
+    **回溯**
+
+    [detail](src/prob216combinationsumIII.md)
 
 241. 加括号的不同方法
     
