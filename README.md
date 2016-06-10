@@ -177,6 +177,12 @@
 
     **动态规划**；**递推**；
 
+94. 树的中序（非递归）遍历
+    
+    [detail](src/prob94binarytreeinordertraversal.md)
+
+    **中序遍历**； **非递归树遍历**
+
 97.  一个字符串是否有其他两个字符串交叉组合而成
 
      [detail](src/prob97interleavingstring.md)
