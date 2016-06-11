@@ -291,6 +291,10 @@
 
     *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯
 
+151. 反转句子中的单词顺序
+
+    [detail](src/prob151reversewordsinastring.md)
+
 152. 最大乘积的子数组
 
     [detail](src/prob152maximumproductsubarray.md)
