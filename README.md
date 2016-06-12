@@ -86,6 +86,15 @@
 
     **区间** ， **插入**
 
+60. 找到第k个n位随机数（排列数）
+
+    [detail](src/prob60permutationsequence.md)
+
+    **数学**；**枚举**；**规律**
+
+    **类·进制转换**
+
+
 62. 到达目标的不同路径
 
     [detail](src/prob62uniquepaths.md)
@@ -294,6 +303,11 @@
 151. 反转句子中的单词顺序
 
     [detail](src/prob151reversewordsinastring.md)
+
+    **双重反转**
+
+    **块反转**
+
 
 152. 最大乘积的子数组
 
