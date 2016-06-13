@@ -222,6 +222,13 @@
 
     **转换** ， **逆向** ， **中序遍历** ， **链表**
 
+114. 把一棵二叉树转为一个先序遍历结果的链表
+
+    **先序遍历**+记录前一个节点 ； **后序遍历** 右左根 = r(根左右)
+
+    [detail](src/prob114flattenbinarytree2linkedlist.md)
+
+
 115. 计数：与一个串相同的不同子串数量
 
     [detail](src/prob115distinctsubsequences.md)
