@@ -269,12 +269,6 @@
 
     想错了的题！！
 
-174. 地牢游戏
-
-    [detail](src/prob174dungeongame.md)
-
-    **动态规划**
-
 132. 回文字符串最小分割
 
     [detail](src/prob132palindromep.md)
@@ -331,6 +325,20 @@
     **线性时间排序**
 
     **桶排序** ； **浮点数不精确**
+
+173. 二叉查找树迭代器
+
+    [detail](src/prob173binarysearchtreeiterator.md)
+
+    **二叉查找树**； **迭代器实现**
+
+    **中序遍历二叉查找树得到递增序列**
+
+174. 地牢游戏
+
+    [detail](src/prob174dungeongame.md)
+
+    **动态规划**
 
 179. 拼成一个最大数
 
