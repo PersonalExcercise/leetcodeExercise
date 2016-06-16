@@ -442,6 +442,12 @@
 
     [detail](sec/prob334increasingtriplesubsequence.md)
 
+343. 分解整数
+
+    **怎么分解整数n使得其和为n而其乘积最大**——数学推导！
+
+    [detail](src/prob343integerbreak.md)
+
 345. 反序句子中的元音字母
 
     [detail](src/prob345reversevowel.md)
