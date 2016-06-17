@@ -318,6 +318,12 @@
 
     **动态规划** （模式：以该位置结尾的子序列）
 
+160. 找两个无环链表第一个相交节点
+
+    [detail](src/prob160intersectionoftwolinkedlists.md)
+
+    **两个无环链表第一个相交节点**
+
 164. 线性时间找到未排序数组的排序位置下最大相邻间隔
 
     [detail](src/prob164maximumgap.md)
