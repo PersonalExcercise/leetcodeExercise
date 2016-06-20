@@ -206,6 +206,12 @@
 
     **二叉查找树，BST**
 
+105. 从先序遍历序列和中序遍历序列重建二叉树
+
+    [detail](src/prob105constructbinarytreefrompreorderandinordertraversal.md)
+
+    **二叉树** ； **建树**； **先序遍历**； **中序遍历**； **遍历规律**
+
 108. 有序数组转为平衡的二叉查找树
 
     [detail](src/prob108convertsortedarray2bst.md)
