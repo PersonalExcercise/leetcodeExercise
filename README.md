@@ -307,6 +307,12 @@
 
     *判断上一个访问的节点是否是其右孩子，如果是则说明是从右回溯
 
+148. 排序链表
+
+    [detail](src/prob148sortlist.md)
+
+    **归并排序**；**链表**；**非递归归并排序**
+
 151. 反转句子中的单词顺序
 
     [detail](src/prob151reversewordsinastring.md)
@@ -354,7 +360,7 @@
 
 179. 拼成一个最大数
 
-    [detail](src/prob149largestnumber.md)
+    [detail](src/prob179largestnumber.md)
 
     **排序**！！
 
