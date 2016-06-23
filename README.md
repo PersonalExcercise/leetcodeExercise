@@ -139,6 +139,12 @@
 
     *经典*
 
+77. 生成c(n,k)的所有可能
+
+    [detail](src/prob77combinations.md)
+
+    **组合**； **回溯** ； **递归与迭代**
+
 80. uniq升级版——允许两次重复
 
     [detail](src/prob80removeduplicatesfromsortedarraysII.md)
