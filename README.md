@@ -22,6 +22,14 @@
 
     [detail](src/prob26removeduplicatesfromsortedarray.md)
 
+34. 确定排序数组中某个数的位置
+
+    **二分查找**；
+
+    **STL** ； **lower_bound** ； **upper_bound** ； **equal_range** ；
+
+    [detail](src/prob34searchforarange.md)
+
 35. 确定插入位置
 
     **二分查找** ； **插入**
