@@ -6,6 +6,12 @@
 
     **链表** *数学*
 
+3. 最长不包含重复字符串的子串
+
+    [detail](src/prob3longestsubstringwithoutrepeatingcharaters.md)
+
+    **双指针** ； **hashTable** ； **快速匹配**
+
 12. 整数转罗马数字
     
     [detail](src/prob12integer2roman.md)
@@ -362,6 +368,14 @@
     **线性时间排序**
 
     **桶排序** ； **浮点数不精确**
+
+166. （循环小数）除法
+    
+    [detail](src/prob166fractiontorecurringdecimal.md)
+
+    **循环小数除法** ； **Hash记录位置**；
+
+    **最小负数的绝对值无法表示！只能提升到更大的类型**
 
 173. 二叉查找树迭代器
 
