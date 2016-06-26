@@ -28,6 +28,12 @@
 
     [detail](src/prob26removeduplicatesfromsortedarray.md)
 
+29. 不用乘法、除法、模运算做除法
+    
+    **位操作**； **二分查找？**； **除法就是被除数包含多少个除数**
+
+    [detail](src/prob29dividetwointegers.md)
+
 34. 确定排序数组中某个数的位置
 
     **二分查找**；
@@ -504,6 +510,12 @@
     **三数递增**
 
     [detail](sec/prob334increasingtriplesubsequence.md)
+
+337. 二叉房间偷盗者
+
+    [detail](src/prob337houserobberIII.md)
+
+    **受限DP**
 
 343. 分解整数
 
