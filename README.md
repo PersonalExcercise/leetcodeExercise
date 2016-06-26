@@ -406,6 +406,12 @@
 
     **有背景的题** **__builtin_popcount/std::bitset<32>**
 
+198. 房屋偷盗
+    
+    [detail](src/prob198houserobber.md)
+
+    **受限DP**; **两个状态序列**；
+
 200. 海中岛的数量
 
     [detail](src/prob200numbersofislands.md)
@@ -413,6 +419,12 @@
     **连通路径**
 
     **遍历**
+
+213. 环形房屋偷盗
+
+    [detail](src/prob213houserobberII.md)
+
+    **受限DP**
 
 216. 从1-9中找出k个不同的数，使得其和为n
 
