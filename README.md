@@ -22,11 +22,15 @@
 
     [detail](src/prob13roman2integer.md)
 
-15. 找三个数和为0的所有不重复组合
+15. 找3个数和为0的所有不重复组合
 
     [detail](src/prob15threesum.md)
 
     **三数和为特定值的所有可能**
+
+18. 找4个数的和为特定值的所有不重复组合
+
+    [detail](src/prob18foursum.md)
 
 26. Unique操作
 
