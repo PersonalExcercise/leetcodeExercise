@@ -1,5 +1,11 @@
 # leetcodeExercise
 
+1. 找满足确定和的两个数
+
+    [detail](sec/prob1twosum.md)
+
+    **HashTable**
+
 2. 两数相加
     
     [detail](src/prob2add2numbers.md)
