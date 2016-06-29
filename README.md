@@ -186,6 +186,22 @@
 
     **组合**； **回溯** ； **递归与迭代**
 
+78. 生成集合中所有子集
+
+    [detail](src/prob78subsets.md)
+
+    **所有子集**;**位操作——数的位对应集合元素取不取**；
+
+    **迭代法**；**回溯与DFS**
+
+79. 找字母表中是否有某个单词
+
+    [detail](src/prob79wordsearch.md)
+
+    **深搜DFS**；
+
+    **迭代版因需要保持访问状态而超时，递归版因为能够恢复状态而通过**
+
 80. uniq升级版——允许两次重复
 
     [detail](src/prob80removeduplicatesfromsortedarraysII.md)
@@ -478,6 +494,14 @@
 
     [detail](src/prob242validanagram.md)
 
+279. 一个数有几个完全平方数加和得到
+
+    **动态规划**；**广度优先搜索**；**深度优先搜索**；
+
+    **数论**；**四平方和定理**；**三平方和定理**
+
+    [detail](src/prob279perfectsquares.md)
+
 290. 判断两个字符串模式是否相同
 
     **HashTable**
@@ -499,6 +523,12 @@
     **数学** ， **加法** ， *大数*
     
     [detail](src/prob306additivenumber.md)
+
+319. 灯泡最后是不是还亮着
+
+    **智力题**；**数学**
+
+    [detail](src/prob319bulbswitcher.md)
 
 
 329. 求矩阵中最长递增序列的长度
@@ -533,6 +563,12 @@
 
     **受限DP**
 
+338. 算0到num中每个数的二进制表示中1的个数 
+
+    [detail](src/prob338countingbits.md)
+
+    **非前一个位置的DP**；**位操作**
+
 343. 分解整数
 
     **怎么分解整数n使得其和为n而其乘积最大**——数学推导！
@@ -552,3 +588,11 @@
     **二维元素的排序+LIS**
 
     **最长递增序列问题**
+
+365. 水桶倒水问题
+
+    [detail](src/prob365waterandjugproblem.md)
+
+    **最大公约数**； **裴蜀定理**；
+
+    **数论**； **深搜失败**
