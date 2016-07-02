@@ -159,6 +159,14 @@
 
     到每个位置的最小代价，与其左（或右）和其上（下）的点有关。
 
+66. 给vector表示的数加1
+    
+    [detail](src/prob66plusone.md)
+
+67. 二进制字符串相加
+    
+    [detail](src/prob67addbinary.md)
+
 
 69. 求一个整数的非精确平方根。 int sqrt(int x)
 
@@ -269,6 +277,12 @@
 
     **二叉查找树，BST**
 
+103. Z形层序遍历二叉树
+
+    [detail](src/prob103binarytreezigzaglevelordertraversal.md)
+
+    **层序遍历**； **Z形**
+
 105. 从先序遍历序列和中序遍历序列重建二叉树
 
     [detail](src/prob105constructbinarytreefrompreorderandinordertraversal.md)
@@ -329,6 +343,18 @@
     **动态规划**
 
     直观上肯定是自顶向下的做动态规划；但是*如果反过来，从底往上做，一下子就变得清晰简单多了*!
+
+121. 买卖股票赚大钱I
+
+    [detail](src/prob121besttimetobuyandsellstock.md)
+
+    **动态规划**
+
+122. 买卖股票赚大钱II
+
+    [detail](src/prob122besttimetobuyandsellstockII.md)
+
+    **贪心**
 
 123. 买卖股票赚大钱III
 
@@ -415,6 +441,19 @@
 
     **最小负数的绝对值无法表示！只能提升到更大的类型**
 
+168. 数字转为Excel列字母的表示
+
+    [detail](src/prob168excelsheetcolumntitle.md)
+
+    **进制转换**
+
+171. Excel列字母转为数字
+
+    [detail](src/prob171excelsheetcolumnnumber.md)
+
+    **进制转换**
+
+
 173. 二叉查找树迭代器
 
     [detail](src/prob173binarysearchtreeiterator.md)
@@ -480,6 +519,12 @@
     [detail](src/prob221maximalsquare.md)
 
 
+226. 反转二叉树
+
+    **Homebrew作者挂掉的题**
+
+    [detail](src/prob226invertbinarytree.md)
+
 241. 加括号的不同方法
     
     **分治** **DP<未完成>**
@@ -493,6 +538,16 @@
     **排序** ！！
 
     [detail](src/prob242validanagram.md)
+
+263. 判断是不是丑数
+
+    [detail](src/prob263uglynumber.md)
+
+264. 找第N个丑数
+
+    [detail](src/prob264uglynumberII.md)
+    
+    **多指针**; **有序**
 
 279. 一个数有几个完全平方数加和得到
 
@@ -530,6 +585,13 @@
 
     [detail](src/prob319bulbswitcher.md)
 
+324. 摆动排序
+
+    [detail](src/prob324wigglesortII.md)
+
+    **找中位数median**； **3色排序（荷兰旗问题）**
+
+    **没有弄懂**
 
 329. 求矩阵中最长递增序列的长度
 
@@ -596,3 +658,9 @@
     **最大公约数**； **裴蜀定理**；
 
     **数论**； **深搜失败**
+
+371. 使用位运算做加法
+
+    [detail](src/prob371sumoftwointegers.md)
+
+    **位操作**
