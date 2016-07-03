@@ -263,6 +263,12 @@
 
     **中序遍历**； **非递归树遍历**
 
+96. n个不同值构成的不同二叉搜索树数目
+
+    [detail](src/prob96uniqbinarysearchtrees.md)
+
+    **BST**; **动态规划**； **递归**；**二叉树**
+
 97.  一个字符串是否有其他两个字符串交叉组合而成
 
      [detail](src/prob97interleavingstring.md)
@@ -474,6 +480,18 @@
 
     **排序**！！
 
+188. 买卖股票赚大钱IV
+
+    [detail](src/prob188besttimetobuyandsellstockIV.md)
+
+    **动态规划**
+
+190. 反转二进制位
+
+    [detail](src/prob190reversebits.md)
+
+    **位操作**
+
 191. 二进制数中1的个数/ 汉明重量(Hamming Weight) / popcount
 
     
@@ -538,6 +556,12 @@
     **排序** ！！
 
     [detail](src/prob242validanagram.md)
+
+258. 求数根
+
+    [detail](src/prob258adddigits.md)
+
+    **数学**；
 
 263. 判断是不是丑数
 

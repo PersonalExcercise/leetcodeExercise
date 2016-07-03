@@ -39,6 +39,26 @@
 
 题解中还提到了，构建`差分序列`！求最大2子段和。之后再看看...
 
+----
+
+update
+
+看了DICUSS的做法，是在太牛逼了。看了很久也没有弄明白，直到看了这个解释：[my-explanation-for-o-n-solution](https://leetcode.com/discuss/91739/my-explanation-for-o-n-solution), 觉得很有道理，然后自己写了一个数组，模拟了一遍。非常棒，模拟过程中就清晰了。
+
+需要定义是个变量：
+
+1. maxBuy1Left , 表示在当前时刻买了此时的股票的话最多剩余的钱。由于初始时金钱为0，故其值就是max(maxBuy1Left, -price);
+
+2. maxSell1Left, 表示在当前时刻卖掉股票的话最多剩余的钱。此时的已有的金钱就是maxBuy1Left(负债)，故其值就是 max(maxSell1Left, maxBuy1Left + price);
+
+3. maxBuy2Left, 表示在当前时刻，第二次买入此股票时最多剩余的钱。此时已有的金钱是maxSell1Left, 故其值为 max(maxBuy2Left, maxSell1Left - price);
+
+4. maxSell2Left, 表示在当前时刻，第二次卖掉此股票时最多剩余的前。此时已有的金钱是maxBuy2Left, 故其值为 max(maxSell2Left, maxBuy2Left + price);
+
+以上，就完整地表示了整个买卖的过程。
+
+其实现在想想，就是买入就减掉当前的价格，卖出就加上当前的价格。唯一的关键是买卖之前的余额是多少。
+
 ###代码
 
 基本照搬题解。
