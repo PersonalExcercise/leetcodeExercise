@@ -188,6 +188,12 @@
 
     *经典*
 
+73. 如果矩阵中某个位置含有0，则清空该行、该列
+    
+    [detail](src/prob73setmatrixzeroes.md)
+
+    **逻辑**
+
 77. 生成c(n,k)的所有可能
 
     [detail](src/prob77combinations.md)
@@ -535,6 +541,14 @@
     **动态规划**
 
     [detail](src/prob221maximalsquare.md)
+
+223. 两个矩形的总面积
+
+    [detail](src/prob223rectanglearea.md)
+
+    **数学**
+
+    **相交矩形的面积： X = min(右上角X1， 右上角X2) - max（左下角X1，左下角X2）， Y同理**
 
 
 226. 反转二叉树
