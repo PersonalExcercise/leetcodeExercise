@@ -263,6 +263,12 @@
 
     **动态规划**；**递推**；
 
+92. 反转链表的指定区间
+
+    [detail](src/prob92reverselinkedlistII.md)
+
+    **链表**
+
 94. 树的中序（非递归）遍历
     
     [detail](src/prob94binarytreeinordertraversal.md)
@@ -300,6 +306,14 @@
     [detail](src/prob105constructbinarytreefrompreorderandinordertraversal.md)
 
     **二叉树** ； **建树**； **先序遍历**； **中序遍历**； **遍历规律**
+
+106. 从中序遍历序列和后续遍历序列重建二叉树
+
+    [detail](src/prob106constructbinarytreefrominorderandpostordertraversal.md)
+
+    **二叉树**；**建树**；**中序遍历**； **后序遍历**；
+
+    **后序遍历反过来看不就跟中序遍历时一样的吗！**
 
 108. 有序数组转为平衡的二叉查找树
 
