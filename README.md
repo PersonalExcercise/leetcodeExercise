@@ -90,6 +90,12 @@
 
     **动态规划** —> 慢
 
+48. 顺时针旋转方阵
+
+    [detail](src/prob48rotateimage.md)
+
+    **顺时针旋转，等价于第一行放第二列；或者先沿/对角线交换，再按行反转**
+
 50. 求x的n次方 , pow(double x , int n)
 
     [detail](src/prob50pow.md)
@@ -179,6 +185,12 @@
     [detail](src/prob70climbingstairs.md)
 
     **动态规划** ； **类-斐波拉切**
+
+71. 规范化路径表示
+
+    [detail](src/prob71simplifypath.md)
+
+    **栈**
 
 72. 编辑距离
 
@@ -397,6 +409,12 @@
     **动态规划**
 
     与矩阵链乘类似。如果使用二维的动态规划，则超时，换为一维的终于通过了。一维的优化子结构是，定义从该位置到末尾位置的最小分割数。
+
+133. 克隆无向图
+
+    [detail](src/prob133clonegraph.md)
+
+    **图遍历**
 
 139. 句子是否可由词典中的词构成
 
