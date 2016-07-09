@@ -40,9 +40,15 @@
 
 26. Unique操作
 
-    **两指针** **unique**
+    **双指针** **unique**
 
     [detail](src/prob26removeduplicatesfromsortedarray.md)
+
+27. 删除字符串中给定值（所有的）
+
+    **双指针**
+
+    [detail](src/prob27removeelement.md)
 
 29. 不用乘法、除法、模运算做除法
     
@@ -251,6 +257,12 @@
     *Hard*
 
     还有*栈方法*待完成。
+
+86. 划分列表
+
+    [detail](src/prob86partitionlist.md)
+
+    **链表**； **边界条件注意！**
 
 87. Scramble String
 
@@ -552,6 +564,12 @@
     **连通路径**
 
     **遍历**
+
+202. 快乐数
+    
+    [detail](src/prob202happynumber.md)
+
+    **循环判断**； **Floyd Cycle Detection 或者 HashTable判重**； 
 
 213. 环形房屋偷盗
 
