@@ -355,6 +355,18 @@
 
     **转换** ， **逆向** ， **中序遍历** ， **链表**
 
+112. 找一条从二叉树根到叶节点的路径，其和等于某数
+
+    [detail](src/prob112pathsum.md)
+
+    **二叉树**；**迭代版后序遍历**
+
+113. 找到所有的满足和为某数的从根到某一叶节点的路径
+
+    [detail](src/prob113pathsumII.md)
+
+    **二叉树**；**迭代版后后序遍历**；
+
 114. 把一棵二叉树转为一个先序遍历结果的链表
 
     **先序遍历**+记录前一个节点 ； **后序遍历** 右左根 = r(根左右)
@@ -413,6 +425,18 @@
     **动态规划**（非典型）
 
     想错了的题！！
+
+124. 二叉树最大路径和
+
+    [detail](src/prob124binarytreemaximumpathsum.md)
+
+    **动态规划**；**后序遍历**；
+
+129. 从根到叶节点构成的数字之和
+    
+    [detail](src/prob129sumroottoleafnumbers.md)
+
+    **二叉树**；**非迭代后序遍历**；
 
 132. 回文字符串最小分割
 
@@ -606,6 +630,12 @@
     **Homebrew作者挂掉的题**
 
     [detail](src/prob226invertbinarytree.md)
+
+232. 使用栈实现队列
+
+    **双栈实现队列，push O(1), pop 分摊O(1)**
+
+    [detail](src/prob232implementqueueusingstacks.md)
 
 241. 加括号的不同方法
     
