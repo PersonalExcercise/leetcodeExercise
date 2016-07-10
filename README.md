@@ -452,6 +452,18 @@
 
     **图遍历**
 
+136. 在一堆都出现两次的数中找唯一只出现一次的数
+
+    [detail](src/prob136singlenumber.md)
+
+    **位操作**；**A异或A等于0**；**异或运算满足交换律**；**0异或A等于A**
+
+137. 在一堆都出现三次的数中找唯一一个只出现一次的数
+
+    [detail](src/prob137singlenumberII.md)
+
+    **位操作**；**使用异或来计数**；**巧妙**
+
 139. 句子是否可由词典中的词构成
 
     [detail](src/prob139wordbreak.md)
@@ -609,6 +621,16 @@
 
     [detail](src/prob216combinationsumIII.md)
 
+217. 数组中是否包含重复
+
+    **HashTable**
+
+    [detail](src/prob217containsduplicate.md)
+
+219. 数组中在K距离内是否包含重复
+
+    [detail](src/prob219containsduplicateII.md)
+
 221. 0，1矩阵全为1的最大正方形面积
 
     
@@ -656,6 +678,14 @@
     [detail](src/prob258adddigits.md)
 
     **数学**；
+
+260. 从一堆出现两次的数中找到只出现一次的不同的两个数
+
+    [detail](src/prob260singlenumberIII.md)
+
+    **位运算**；**分组**；**num & (-num)得到位中右起第一个为1的值**；**(num-1) & num 去掉右起第一个为1的位**；
+
+    **~(num-1) & num得到位中右起第一个为1的值**
 
 263. 判断是不是丑数
 
