@@ -18,6 +18,12 @@
 
     **双指针** ； **hashTable** ； **快速匹配**
 
+5. 最长回文子串
+
+    [detail](src/prob5longestpalindromicsubstring.md)
+
+    **回文**；**已有算法**；**Manacher's Algorithm**
+
 12. 整数转罗马数字
     
     [detail](src/prob12integer2roman.md)
@@ -511,6 +517,12 @@
 
     **动态规划** （模式：以该位置结尾的子序列）
 
+153. 找旋转数组中的最小值
+
+    [detail](src/prob153findminimuminrotatedsortedarray.md)
+
+    **旋转数组**；**二分查找-变体**
+
 160. 找两个无环链表第一个相交节点
 
     [detail](src/prob160intersectionoftwolinkedlists.md)
@@ -659,6 +671,12 @@
 
     [detail](src/prob232implementqueueusingstacks.md)
 
+234. 判断链表中的数字是否是回文关系
+    
+    **反转部分链表**；**一次遍历找链表的后半部分头指针**
+    
+    [detail](src/prob234palindromlinkedlist.md)
+
 241. 加括号的不同方法
     
     **分治** **DP<未完成>**
@@ -696,6 +714,10 @@
     [detail](src/prob264uglynumberII.md)
     
     **多指针**; **有序**
+
+268. 找到0到n中缺失的数
+
+    [detail](src/prob268missingnumber.md)
 
 279. 一个数有几个完全平方数加和得到
 
