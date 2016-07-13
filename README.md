@@ -24,6 +24,12 @@
 
     **回文**；**已有算法**；**Manacher's Algorithm**
 
+7. 反转整数
+    
+    [detail](src/prob7reverseinteger.md)
+
+    **数学**；**如果检查越界问题！——除以10是否等于原数**
+
 12. 整数转罗马数字
     
     [detail](src/prob12integer2roman.md)
@@ -61,6 +67,12 @@
     **位操作**； **二分查找？**； **除法就是被除数包含多少个除数**
 
     [detail](src/prob29dividetwointegers.md)
+
+33. 在排序后旋转的数组中搜索
+
+    [detail](src/prob33searchinrotatedsortedarray.md)
+
+    **类·二分查找**；**旋转数组**
 
 34. 确定排序数组中某个数的位置
 
@@ -247,6 +259,10 @@
     **双指针**
 
     **两种思维方式** ， **容器end()调用耗时显著性**
+
+81. 在有重复的旋转排序数组中查找某个数是否存在
+
+    [detail](src/prob81searchinrotatedsortedarrayII.md)
 
 84. 直方图中最大矩形面积
 
@@ -828,6 +844,12 @@
     **最大公约数**； **裴蜀定理**；
 
     **数论**； **深搜失败**
+
+367. 验证一个数是否是完全平方数
+
+    [detail](src/prob367validperfectsquare.md)
+
+    **完全平方**；**数学**；**开方**；**二分查找**
 
 371. 使用位运算做加法
 
