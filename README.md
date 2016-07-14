@@ -545,6 +545,12 @@
 
     **两个无环链表第一个相交节点**
 
+162. 找局部最大值
+
+    [detail](src/prob162findpeekelement.md)
+
+    **二分搜索**
+
 164. 线性时间找到未排序数组的排序位置下最大相邻间隔
 
     [detail](src/prob164maximumgap.md)
