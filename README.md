@@ -2,7 +2,7 @@
 
 1. 找满足确定和的两个数
 
-    [detail](sec/prob1twosum.md)
+    [detail](src/prob1twosum.md)
 
     **HashTable**
 
@@ -834,6 +834,12 @@
     [detail](src/prob345reversevowel.md)
 
     **双指针**
+
+347. 找序列中出现Top K次的元素
+
+    [detail](src/prob347topkfrequentelements.md)
+
+    **Top K**; **Min-Heap**
 
 354. 俄罗斯套娃，能套多少个
 
