@@ -868,3 +868,9 @@
     [detail](src/prob371sumoftwointegers.md)
 
     **位操作**
+
+375. 猜数问题下的MinMax
+    
+    [detail](src/prob375guessnumberhigherorlowerII.md)
+
+    **MinMax**
