@@ -940,3 +940,9 @@
     [detail](src/prob374guessnumberhigherorlower.md)
 
     **二分查找**
+
+375. 猜数问题下的MinMax
+    
+    [detail](src/prob375guessnumberhigherorlowerII.md)
+
+    **MinMax**
