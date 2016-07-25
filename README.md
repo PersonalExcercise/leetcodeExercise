@@ -30,6 +30,12 @@
 
     **数学**；**如果检查越界问题！——除以10是否等于原数**
 
+9. 一个数是不是回文数
+
+    [detail](src/prob9palindromenumber.md)
+
+    **数学**；**回文**
+
 12. 整数转罗马数字
     
     [detail](src/prob12integer2roman.md)
@@ -486,6 +492,12 @@
 
     **位操作**；**使用异或来计数**；**巧妙**
 
+138. 复制待随机指针的链表
+
+    [detail](src/prob138copylistwithrandompointer.md)
+
+    **利用已有的指针！**；**HashTable**
+
 139. 句子是否可由词典中的词构成
 
     [detail](src/prob139wordbreak.md)
@@ -559,6 +571,12 @@
 
     **桶排序** ； **浮点数不精确**
 
+165. 比较版本号的大小
+
+    [detail](src/prob165compareversionnumber.md)
+
+    **边界条件！**；**不要想当然觉得输入就是合法、归一化的！**
+
 166. （循环小数）除法
     
     [detail](src/prob166fractiontorecurringdecimal.md)
@@ -627,6 +645,12 @@
 
     **受限DP**; **两个状态序列**；
 
+199. 二叉树的右侧视图
+
+    [detail](src/prob199binarytreerightview.md)
+
+    **层序遍历**；**保持递归访问顺序**
+
 200. 海中岛的数量
 
     [detail](src/prob200numbersofislands.md)
@@ -640,6 +664,18 @@
     [detail](src/prob202happynumber.md)
 
     **循环判断**； **Floyd Cycle Detection 或者 HashTable判重**； 
+
+205. 字符串是否同构
+
+    [detail](src/prob205isomorphicstrings.md)
+
+    **双射模式匹配**； ***HashTable*
+
+207. 课表是否可排
+
+    [detail](src/prob207courseschedule.md)
+
+    **拓扑排序(topological sort)**
 
 213. 环形房屋偷盗
 
@@ -686,6 +722,18 @@
     **Homebrew作者挂掉的题**
 
     [detail](src/prob226invertbinarytree.md)
+
+228. 从递增数字序列中合并区间表示
+
+    [detail](src/prob228summaryranges.md)
+
+    **数组**
+
+231. 是否是2的平方
+
+    [detail](src/prob231poweroftwo.md)
+
+    **数学**；**位操作**
 
 232. 使用栈实现队列
 
@@ -771,6 +819,12 @@
     
     [detail](src/prob306additivenumber.md)
 
+315. 计算数组中每个位置的右边区域中小于该位置的数的个数
+
+    [detail](src/prob315countofsmallernumberafterself.md)
+
+    **二叉查找树；BST**
+
 319. 灯泡最后是不是还亮着
 
     **智力题**；**数学**
@@ -784,6 +838,12 @@
     **找中位数median**； **3色排序（荷兰旗问题）**
 
     **没有弄懂**
+
+328. 将链表奇数位置和偶数位置的数连到一起
+
+    [detail](src/prob328oddevenlinkedlist.md)
+
+    **链表**
 
 329. 求矩阵中最长递增序列的长度
 
@@ -822,6 +882,12 @@
     [detail](src/prob338countingbits.md)
 
     **非前一个位置的DP**；**位操作**
+
+341. 实现NestedInteger的迭代器操作
+
+    [detail](src/prob341flattennestedlistiterator.md)
+
+    **实现**
 
 343. 分解整数
 
@@ -868,3 +934,9 @@
     [detail](src/prob371sumoftwointegers.md)
 
     **位操作**
+
+374. 猜数
+
+    [detail](src/prob374guessnumberhigherorlower.md)
+
+    **二分查找**
