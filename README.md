@@ -98,6 +98,12 @@
 
     [detail](src/prob35searchinsertposition.md)
 
+38. 计数与描述
+
+    [detail](src/prob38countingandsay.md)
+
+    **字符串**
+
 39. 从集合中找出一些数使得其和为某个值，找出的数集合彼此不能重复
 
     **递归** , **组合**
@@ -133,6 +139,12 @@
     **二分** ； **分治**
 
     一定要考虑n 为负的情况！ 一定要考虑n为0的情况。
+
+51. N-皇后！
+
+    [detail](src/prob51nqueens.md)
+
+    **回溯**；**深搜**； **八皇后问题**
 
 53. 最大子数组和，Maximum Subarray
 
@@ -708,6 +720,12 @@
 
     [detail](src/prob221maximalsquare.md)
 
+222. 求一棵完全二叉树的节点数
+
+    [detail](src/prob222countcompletetreenodes.md)
+
+    **完全二叉树**；**递归思想**；**二分思想**
+
 223. 两个矩形的总面积
 
     [detail](src/prob223rectanglearea.md)
@@ -819,6 +837,12 @@
     
     [detail](src/prob306additivenumber.md)
 
+313. 超级丑数
+
+    [detail](src/prob313superuglynumber.md)
+
+    **Heap**； **多路归并**
+
 315. 计算数组中每个位置的右边区域中小于该位置的数的个数
 
     [detail](src/prob315countofsmallernumberafterself.md)
@@ -838,6 +862,12 @@
     **找中位数median**； **3色排序（荷兰旗问题）**
 
     **没有弄懂**
+
+326. 是否是3的幂
+
+    [detail](src/prob326powerofthree.md)
+
+    **数学**
 
 328. 将链表奇数位置和偶数位置的数连到一起
 
@@ -888,6 +918,12 @@
     [detail](src/prob341flattennestedlistiterator.md)
 
     **实现**
+
+342. 是否是4个幂
+
+    [detail](src/prob342poweroffour.md)
+
+    **位操作** 
 
 343. 分解整数
 
