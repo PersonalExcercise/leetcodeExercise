@@ -30,6 +30,12 @@
 
     **数学**；**如果检查越界问题！——除以10是否等于原数**
 
+8. 字符串转整数
+
+    [detail](src/prob8string2integer.md)
+
+    **字符串**；**实现原生函数**
+
 9. 一个数是不是回文数
 
     [detail](src/prob9palindromenumber.md)
@@ -311,6 +317,12 @@
     **暴力**；**递归**；**三阶动态规划**；**剪枝**；
 
     *Hard*；
+
+88. 原地合并有序数组
+
+    [detail](src/prob88mergesortedarray.md)
+
+    **双指针**；**数组**
 
 89. Gray Code 生成n位格雷码
 
@@ -630,6 +642,12 @@
 
     **排序**！！
 
+187. 重复DNA序列
+
+    [detail](src/prob187repeateddnasequences.md)
+
+    **位运算**； **HashMap**
+
 188. 买卖股票赚大钱IV
 
     [detail](src/prob188besttimetobuyandsellstockIV.md)
@@ -815,6 +833,13 @@
 
     [detail](src/prob279perfectsquares.md)
 
+
+289. 生命游戏 
+    
+    [detail](src/prob289gameoflife.md)
+
+    **规则**；**使用位运算来存储新状态**
+
 290. 判断两个字符串模式是否相同
 
     **HashTable**
@@ -950,6 +975,18 @@
     **二维元素的排序+LIS**
 
     **最长递增序列问题**
+
+355. 设计简易Tweeter
+
+    [detail](src/prob355designtwitter.md)
+
+    **设计**
+
+357. 计算1位数到N位数中有多少个数字不相同的数
+
+    [detail](src/prob357countnumberswithuniquedigits.md)
+
+    **数学**
 
 365. 水桶倒水问题
 
