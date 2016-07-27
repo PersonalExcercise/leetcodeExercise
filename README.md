@@ -176,6 +176,12 @@
 
     **区间** ， **插入**
 
+58. 确定最后一个单词的长度
+
+    [detail](src/prob58lengthoflastword.md)
+
+    **字符串**
+
 60. 找到第k个n位随机数（排列数）
 
     [detail](src/prob60permutationsequence.md)
@@ -288,6 +294,14 @@
 
     [detail](src/prob81searchinrotatedsortedarrayII.md)
 
+    **旋转数组**
+
+82. 删除链表中重复节点
+
+    [detail](src/prob82removeduplicatesfromsortedlistII.md)
+
+    **链表**
+
 84. 直方图中最大矩形面积
 
     [detail](src/prob84largestrectangleinhistogram.md)
@@ -370,6 +384,12 @@
     [detail](src/prob98validBST.md)
 
     **二叉查找树，BST**
+
+102. 获取树的每层节点列表
+
+    [detail](src/prob102bianrytreelevelordertraversal.md)
+
+    **层序遍历**；
 
 103. Z形层序遍历二叉树
 
@@ -707,6 +727,11 @@
 
     **拓扑排序(topological sort)**
 
+
+210. 排课表
+
+    [detail](src/prob210coursescheduleII.md)
+
 213. 环形房屋偷盗
 
     [detail](src/prob213houserobberII.md)
@@ -825,6 +850,12 @@
 
     [detail](src/prob268missingnumber.md)
 
+274. 计算H-Index 
+
+    [detail](src/prob274hindex.md)
+
+    **排序**；**有意思**
+
 279. 一个数有几个完全平方数加和得到
 
     **动态规划**；**广度优先搜索**；**深度优先搜索**；
@@ -909,6 +940,12 @@
     **DFS**
 
     **Memoization**
+
+330. 向候选数组增加尽可能少的数，使得数组中的任意数的（每个数最多使用一次）和能够覆盖[1,n]
+
+    [detail](src/prob330pachingarray.md)
+
+    **贪心**
 
 331. 验证一棵树的先序遍历得到的序列化串是否合法
 
