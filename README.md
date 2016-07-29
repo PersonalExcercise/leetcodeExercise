@@ -18,6 +18,12 @@
 
     **双指针** ； **hashTable** ； **快速匹配**
 
+4. 两个排序数组的中位数
+
+    [detail](src/prob4medianoftwosortedarrays.md)
+
+    **二分思想**；**分治思想！**
+
 5. 最长回文子串
 
     [detail](src/prob5longestpalindromicsubstring.md)
@@ -137,6 +143,12 @@
     [detail](src/prob48rotateimage.md)
 
     **顺时针旋转，等价于第一行放第二列；或者先沿/对角线交换，再按行反转**
+
+49. 分组相同字母的异构词
+
+    [detail](src/prob49groupanagrams.md)
+
+    **HashTable**
 
 50. 求x的n次方 , pow(double x , int n)
 
@@ -1004,6 +1016,12 @@
     [detail](src/prob347topkfrequentelements.md)
 
     **Top K**; **Min-Heap**
+
+350. 两个数组的相交元素
+
+    [detail](src/prob350intersectionoftwoarrayII.md)
+
+    **HashTable**；**双指针**
 
 354. 俄罗斯套娃，能套多少个
 
