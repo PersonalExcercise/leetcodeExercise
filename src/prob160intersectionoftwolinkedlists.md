@@ -6,7 +6,7 @@
 
 MD智障啊。真是不服不行。
 
-编程之美上有一个基础的问题，值判断是否相交；然后后续有个问题就是如果需要找第一个相交节点该怎么办？当时我随便一想，觉得应该没有办法，只有用计数了吧。
+编程之美上有一个基础的问题，只判断是否相交；然后后续有个问题就是如果需要找第一个相交节点该怎么办？当时我随便一想，觉得应该没有办法，只有用计数了吧。
 
 然后，竟然还有这么巧妙的办法，只需要用两个指针分别走一遍A、走一遍B，当到达第一个相交节点时，他们走的路程必然是相同的，即$len(link A) + len(link B) - len(linkA \cap linkB)$；特别的，如果二者不相交，那么就是都走到尾部，即走了$len(linkA) + len(linkB)$. 来自[My accepted simple and shortest C++ code with comments explaining the algorithm. Any comments or improvements?](https://leetcode.com/discuss/17278/accepted-shortest-explaining-algorithm-comments-improvements)
 

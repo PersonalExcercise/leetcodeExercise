@@ -58,6 +58,12 @@
 
     [detail](src/prob13roman2integer.md)
 
+14. 最长公共前缀
+
+    [detail](src/prob14longestcommonprefix.md)
+
+    **字符串**
+
 15. 找3个数和为0的所有不重复组合
 
     [detail](src/prob15threesum.md)
@@ -1016,6 +1022,10 @@
     [detail](src/prob347topkfrequentelements.md)
 
     **Top K**; **Min-Heap**
+
+349. 两个数组的相交元素构成的集合
+
+    [detail](src/prob349intersectionoftwoarray.md)
 
 350. 两个数组的相交元素
 
