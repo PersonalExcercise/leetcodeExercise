@@ -70,6 +70,12 @@
 
     **三数和为特定值的所有可能**
 
+17. 手机按键上的9宫格数字能够组合成的所有可能字符串
+
+    [detail](src/prob17lettercombinationsofaphonenumber.md)
+
+    **深度搜索；深搜**； **回溯**
+
 18. 找4个数的和为特定值的所有不重复组合
 
     [detail](src/prob18foursum.md)
@@ -143,6 +149,12 @@
     [detail](src/prob44wildcardmatching.md)
 
     **动态规划** —> 慢
+
+45. 跳数游戏2
+
+    [detail](src/prob45jumpgame2.md)
+
+    **问题转化**，**BFS；广搜；广度优先搜索**；**层序遍历**
 
 48. 顺时针旋转方阵
 
@@ -364,6 +376,11 @@
 
     **格雷码**
 
+90. 求数组的所有子集
+
+    [detail](src/prob90subsetsII.md)
+    
+    **深搜**；**回溯**
 
 91. 解码方法数
 
@@ -733,6 +750,12 @@
 
     **循环判断**； **Floyd Cycle Detection 或者 HashTable判重**； 
 
+204. 计数小于N的素数个数
+
+    [detail](src/prob204countprimes.md)
+
+    **筛素数**
+
 205. 字符串是否同构
 
     [detail](src/prob205isomorphicstrings.md)
@@ -882,6 +905,11 @@
 
     [detail](src/prob279perfectsquares.md)
 
+283. 把0都移动到数组的末尾，同时保持非零元素相对顺序不变
+
+    [detail](src/prob283movezeros.md)
+
+    **双指针**；**优化循环次数**
 
 289. 生命游戏 
     
@@ -911,6 +939,12 @@
     
     [detail](src/prob306additivenumber.md)
 
+309. 买卖股票赚大钱(带冷却限制)
+
+    [detail](src/prob309besttimetobuyandsellstockwithcooldown.md)
+
+    **动态规划**；**状态转移**
+
 313. 超级丑数
 
     [detail](src/prob313superuglynumber.md)
@@ -922,6 +956,12 @@
     [detail](src/prob315countofsmallernumberafterself.md)
 
     **二叉查找树；BST**
+
+316. 移除字符串中重复的字母，且要求结果字符串在所有可能结果中按字典序最小
+
+    [detail](src/prob316removeduplicateletters.md)
+
+    **字符串**；**栈**
 
 319. 灯泡最后是不是还亮着
 

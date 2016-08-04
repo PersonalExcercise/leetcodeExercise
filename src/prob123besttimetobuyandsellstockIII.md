@@ -53,9 +53,13 @@ update
 
 3. maxBuy2Left, 表示在当前时刻，第二次买入此股票时最多剩余的钱。此时已有的金钱是maxSell1Left, 故其值为 max(maxBuy2Left, maxSell1Left - price);
 
-4. maxSell2Left, 表示在当前时刻，第二次卖掉此股票时最多剩余的前。此时已有的金钱是maxBuy2Left, 故其值为 max(maxSell2Left, maxBuy2Left + price);
+4. maxSell2Left, 表示在当前时刻，第二次卖掉此股票时最多剩余的钱。此时已有的金钱是maxBuy2Left, 故其值为 max(maxSell2Left, maxBuy2Left + price);
+
+注意，更新当前状态时，使用的都是之前的值！要不想有临时变量，那么就先更新maxSell2Left, maxBuy2Left, maxSell2Left, maxBuy1Left. 
 
 以上，就完整地表示了整个买卖的过程。
+
+初始化时，应该将每个maxBuy\*Left都设为-prices[0], maxSell\*Left都设为0。然后状态转移从下标1开始。
 
 其实现在想想，就是买入就减掉当前的价格，卖出就加上当前的价格。唯一的关键是买卖之前的余额是多少。
 
