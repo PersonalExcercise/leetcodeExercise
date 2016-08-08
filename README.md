@@ -98,6 +98,12 @@
 
     [detail](src/prob29dividetwointegers.md)
 
+31. 下一个排列数
+
+    [detail](src/prob31nextpermutation.md)
+
+    **数组**；**排列；Permutation**
+
 33. 在排序后旋转的数组中搜索
 
     [detail](src/prob33searchinrotatedsortedarray.md)
@@ -289,6 +295,12 @@
     [detail](src/prob73setmatrixzeroes.md)
 
     **逻辑**
+
+74. 在二维有序矩阵中查找某数
+
+    [detail](src/prob74searcha2dmatrix.md)
+
+    **二分查找**；**矩阵**
 
 77. 生成c(n,k)的所有可能
 
@@ -539,6 +551,12 @@
 
     **动态规划**；**后序遍历**；
 
+125. 验证回文字符串
+
+    [detail](src/prob125validpalindrome.md)
+
+    **回文**
+
 129. 从根到叶节点构成的数字之和
     
     [detail](src/prob129sumroottoleafnumbers.md)
@@ -627,6 +645,12 @@
 153. 找旋转数组中的最小值
 
     [detail](src/prob153findminimuminrotatedsortedarray.md)
+
+    **旋转数组**；**二分查找-变体**
+
+154. 找有重复数的旋转数组中的最小值
+
+    [detail](src/prob154findminimumrotatedsortedarrayII.md)
 
     **旋转数组**；**二分查找-变体**
 
