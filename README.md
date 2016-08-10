@@ -555,7 +555,7 @@
 
     [detail](src/prob125validpalindrome.md)
 
-    **回文**
+    **回文**；**字符串**
 
 129. 从根到叶节点构成的数字之和
     
@@ -700,6 +700,11 @@
 
     **进制转换**
 
+172. n!中尾部0的个数
+
+    [detail](src/prob172factorialtrtailingzeros.md)
+
+    **数学**
 
 173. 二叉查找树迭代器
 
@@ -986,6 +991,12 @@
     [detail](src/prob316removeduplicateletters.md)
 
     **字符串**；**栈**
+
+318. 不包含相同字符的单词的最大长度乘积
+
+    [detail](src/prob318maximumproductofwordlengths.md)
+
+    **位操作**；**单词的数字化表示**
 
 319. 灯泡最后是不是还亮着
 
