@@ -150,6 +150,10 @@
 
     [detail](src/prob40combinationsumII.md)
 
+41. 找第一个缺失的正数
+
+    [detail](src/prob41firstmissingpositive.md)
+
 44. 通配符匹配
 
     [detail](src/prob44wildcardmatching.md)
