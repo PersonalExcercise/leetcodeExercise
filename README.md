@@ -156,6 +156,12 @@
 
     **问题转化**，**BFS；广搜；广度优先搜索**；**层序遍历**
 
+47. 所有不重复的随机序列
+
+    [detail](src/prob47permutationsII.md)
+
+    **深搜**；**回溯**；**交换**；**shuffle**
+
 48. 顺时针旋转方阵
 
     [detail](src/prob48rotateimage.md)
@@ -1124,3 +1130,8 @@
     [detail](src/prob375guessnumberhigherorlowerII.md)
 
     **MinMax**
+378. 在一个排序矩阵中的第K小数
+
+    [detail](src/prob378kthsmallestelementinasortedmatrix.md)
+
+    **Heap**；**有序矩阵**；**第K小**
