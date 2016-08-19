@@ -98,6 +98,12 @@
 
     [detail](src/prob29dividetwointegers.md)
 
+31. 下一个排列数
+
+    [detail](src/prob31nextpermutation.md)
+
+    **数组**；**排列；Permutation**
+
 33. 在排序后旋转的数组中搜索
 
     [detail](src/prob33searchinrotatedsortedarray.md)
@@ -143,6 +149,10 @@
     **回溯**
 
     [detail](src/prob40combinationsumII.md)
+
+41. 找第一个缺失的正数
+
+    [detail](src/prob41firstmissingpositive.md)
 
 44. 通配符匹配
 
@@ -295,6 +305,12 @@
     [detail](src/prob73setmatrixzeroes.md)
 
     **逻辑**
+
+74. 在二维有序矩阵中查找某数
+
+    [detail](src/prob74searcha2dmatrix.md)
+
+    **二分查找**；**矩阵**
 
 77. 生成c(n,k)的所有可能
 
@@ -545,6 +561,12 @@
 
     **动态规划**；**后序遍历**；
 
+125. 验证回文字符串
+
+    [detail](src/prob125validpalindrome.md)
+
+    **回文**；**字符串**
+
 129. 从根到叶节点构成的数字之和
     
     [detail](src/prob129sumroottoleafnumbers.md)
@@ -636,6 +658,12 @@
 
     **旋转数组**；**二分查找-变体**
 
+154. 找有重复数的旋转数组中的最小值
+
+    [detail](src/prob154findminimumrotatedsortedarrayII.md)
+
+    **旋转数组**；**二分查找-变体**
+
 160. 找两个无环链表第一个相交节点
 
     [detail](src/prob160intersectionoftwolinkedlists.md)
@@ -682,6 +710,11 @@
 
     **进制转换**
 
+172. n!中尾部0的个数
+
+    [detail](src/prob172factorialtrtailingzeros.md)
+
+    **数学**
 
 173. 二叉查找树迭代器
 
@@ -968,6 +1001,12 @@
     [detail](src/prob316removeduplicateletters.md)
 
     **字符串**；**栈**
+
+318. 不包含相同字符的单词的最大长度乘积
+
+    [detail](src/prob318maximumproductofwordlengths.md)
+
+    **位操作**；**单词的数字化表示**
 
 319. 灯泡最后是不是还亮着
 
