@@ -968,7 +968,13 @@
 
     **最长递增子序列**
     
-    [detail](https://leetcode.com/problems/longest-increasing-subsequence/)
+    [detail](src/prob300longestincreasingsequence.md)
+
+303. 范围和查询
+
+    **动态规划**
+
+    [detail](src/prob303rangesumqueryimmutable.md)
 
 306. 是否是加数字符串
 
@@ -1169,6 +1175,7 @@
     [detail](src/prob375guessnumberhigherorlowerII.md)
 
     **MinMax**
+
 378. 在一个排序矩阵中的第K小数
 
     [detail](src/prob378kthsmallestelementinasortedmatrix.md)
