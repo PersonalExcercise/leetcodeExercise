@@ -151,7 +151,9 @@
     [detail](src/prob40combinationsumII.md)
 
 41. 找第一个缺失的正数
-
+    
+    **思维能力**
+    
     [detail](src/prob41firstmissingpositive.md)
 
 44. 通配符匹配
@@ -984,11 +986,23 @@
     
     [detail](src/prob306additivenumber.md)
 
+307. 范围和查询（有更新）
+    
+    **segment tree**
+
+    [detail](src/prob307rangesumquery.md)
+
 309. 买卖股票赚大钱(带冷却限制)
 
     [detail](src/prob309besttimetobuyandsellstockwithcooldown.md)
 
     **动态规划**；**状态转移**
+
+310. 具有最小高度的树的根节点
+
+    **无向无环图最长路径问题**；**问题转化能力**
+
+    [detail](src/prob310minimumheighttrees.md)
 
 313. 超级丑数
 
