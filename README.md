@@ -80,6 +80,12 @@
 
     [detail](src/prob18foursum.md)
 
+21. 归并两个有序链表
+    
+    **归并**
+
+    [detail](src/prob21mergetwosortedlists.md)
+
 26. Unique操作
 
     **双指针** **unique**
@@ -889,6 +895,12 @@
     **反转部分链表**；**一次遍历找链表的后半部分头指针**
     
     [detail](src/prob234palindromlinkedlist.md)
+
+239. 求连续滑动窗口中的最大值
+
+    **滑动窗口**; **dequue**；
+
+    [detail](src/prob239slidingwindowmaximum.md)
 
 241. 加括号的不同方法
     
