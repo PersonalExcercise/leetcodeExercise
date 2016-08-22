@@ -629,6 +629,24 @@
 
     **生成所有可能结果**
 
+141. 链表判圈
+
+    [detail](src/prob141linkedlistcycle.md)
+
+    **判圈问题**；**Floyd's cycle-finding algorithm**
+
+142. 找链表中圈的起点
+
+    [detail](src/prob142linkedlistcycleII.md)
+
+    **判圈问题**；**寻找圈的起点**
+
+144. 二叉树的先序非递归遍历
+
+    [detail](src/prob144binarytreepreordertraversal.md)
+
+    **树遍历**； **先序遍历**
+
 145. 二叉树的后序非递归遍历
 
     [detail](src/prob145BSTpostorder.md)
@@ -896,9 +914,16 @@
     
     [detail](src/prob234palindromlinkedlist.md)
 
+236. 二叉树的最低公共祖先
+
+    **二叉树**
+
+    [detail](src/prob236lowestcommonancestorofabinarytree.md)
+
+
 239. 求连续滑动窗口中的最大值
 
-    **滑动窗口**; **dequue**；
+    **滑动窗口**; **dequue**;
 
     [detail](src/prob239slidingwindowmaximum.md)
 
