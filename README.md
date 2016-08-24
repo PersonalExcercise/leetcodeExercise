@@ -30,6 +30,12 @@
 
     **回文**；**已有算法**；**Manacher's Algorithm**
 
+6. 把字符串按Z型写
+
+    [detail](src/prob6zigzagconversion.md)
+
+    **字符串**；**循环控制**
+
 7. 反转整数
     
     [detail](src/prob7reverseinteger.md)
@@ -47,6 +53,18 @@
     [detail](src/prob9palindromenumber.md)
 
     **数学**；**回文**
+
+10. 正则表达式匹配
+
+    [detail](src/prob10regularexpressionmathing.md)
+
+    **动态规划**；**正则匹配**
+
+11. 求一组隔板与坐标轴围成的桶能装水的最大量
+
+    [detail](src/prob11containerwithmostwater.md)
+
+    **双指针**
 
 12. 整数转罗马数字
     
@@ -1000,6 +1018,12 @@
     **HashTable**
 
     [detail](src/prob290wordpattern.md)
+
+295. 找数据流中的中位数
+
+    [detail](src/prob295findmedianfromdatastream.md)
+
+    **中位数**；**最小堆；最大堆**
 
 300. 最长递增子序列 LIS
 
