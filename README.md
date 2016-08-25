@@ -86,7 +86,13 @@
 
     [detail](src/prob15threesum.md)
 
-    **三数和为特定值的所有可能**
+    **三数和为特定值的所有可能**；**排序**；**双指针**
+
+16. 三数和中离特定值最近的和
+
+    [detail](src/prob16threesumclosest.md)
+
+    **三数和**；**排序**；**双指针**
 
 17. 手机按键上的9宫格数字能够组合成的所有可能字符串
 
@@ -98,11 +104,29 @@
 
     [detail](src/prob18foursum.md)
 
+19. 删除链表中倒数第K个节点
+
+    [detail](src/prob19removenthnodefromendoflist.md)
+
+    **链表**；**设置尾部探测指针**
+
+20. 括号序列是否匹配
+
+    [detail](src/prob20validparentheses.md)
+
+    **栈**；
+
 21. 归并两个有序链表
     
     **归并**
 
     [detail](src/prob21mergetwosortedlists.md)
+
+22. 生成合法的包含n对的括号序列
+
+    [detail](src/prob22generateparentheses.md)
+
+    **回溯**；**深度优先**
 
 26. Unique操作
 
