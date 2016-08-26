@@ -128,6 +128,24 @@
 
     **回溯**；**深度优先**
 
+23. 归并K个有序链表
+
+    [detail](src/prob23mergeksortedlists.md)
+
+    **归并Merge**; **最小堆**
+
+24. 交换链表中每两个节点
+
+    [detail](src/prob24swapnodesinpairs.md)
+
+    **链表**
+
+25. 反转链表中每K个节点
+
+    [detail](src/prob25reversenodesinkgroup.md)
+
+    **链表**
+
 26. Unique操作
 
     **双指针** **unique**
