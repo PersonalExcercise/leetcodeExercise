@@ -158,6 +158,12 @@
 
     [detail](src/prob27removeelement.md)
 
+28. 实现`strStr`(`find`/`indexOf`)
+    
+    **字符串匹配**
+
+    [detail](src/prob28implementstrstr.md)
+
 29. 不用乘法、除法、模运算做除法
     
     **位操作**； **二分查找？**； **除法就是被除数包含多少个除数**
@@ -169,6 +175,12 @@
     [detail](src/prob31nextpermutation.md)
 
     **数组**；**排列；Permutation**
+
+32. 最长的合法括号序列的长度
+
+    [detail](src/prob32longestvalidparentheses.md)
+
+    **动态规划**；**栈**；**双向处理**；**多方法！**
 
 33. 在排序后旋转的数组中搜索
 
