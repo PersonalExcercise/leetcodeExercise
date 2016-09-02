@@ -206,6 +206,12 @@
 
     [detail](src/prob35searchinsertposition.md)
 
+36. 验证数独是否合法
+
+    [detail](src/prob36validsudoku.md)
+
+    **HashTable**
+
 38. 计数与描述
 
     [detail](src/prob38countingandsay.md)
@@ -246,7 +252,13 @@
 
     **问题转化**，**BFS；广搜；广度优先搜索**；**层序遍历**
 
-47. 所有不重复的随机序列
+46. 求无重复数字集合的所有不重复随机序列(permutation)
+
+    [detail](src/prob46permutations.md)
+
+    **深搜**；**回溯**
+
+47. 求有重复数字集合的所有不重复的随机序列(permutation)
 
     [detail](src/prob47permutationsII.md)
 
