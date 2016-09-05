@@ -31,7 +31,7 @@ private:
         vector<bool> backDiagState;
         int n;
         State(int n) 
-            : colState(n, false), diagState(n, false), backDiagState(n, false), n(n)
+            : colState(n, false), diagState(2 * n - 1, false), backDiagState(2 * n - 1, false), n(n)
         {}
         bool isValid(int row, int col) const
         {

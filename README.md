@@ -240,6 +240,18 @@
     
     [detail](src/prob41firstmissingpositive.md)
 
+42. 求收集的雨水量
+
+    **栈方法**
+
+    [detail](src/prob42trappingrainwater.md)
+
+43. 字符串乘法
+
+    **字符串**；**数学MATH**
+
+    [detail](src/prob43multiplystrings.md)
+
 44. 通配符匹配
 
     [detail](src/prob44wildcardmatching.md)
@@ -289,6 +301,12 @@
     [detail](src/prob51nqueens.md)
 
     **回溯**；**深搜**； **八皇后问题**
+
+52. N-皇后！计数
+    
+    [detail](src/prob52nqueuesII.md)
+
+    **八皇后问题**；**深搜**；**回溯**
 
 53. 最大子数组和，Maximum Subarray
 
@@ -997,6 +1015,12 @@
     **反转部分链表**；**一次遍历找链表的后半部分头指针**
     
     [detail](src/prob234palindromlinkedlist.md)
+
+235. 二叉查找树的最低公共祖先
+
+    **二叉查找树**
+
+    [detail](src/prob235lowestcommonancestorofabinarysearchtree.md)
 
 236. 二叉树的最低公共祖先
 
