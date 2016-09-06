@@ -1109,6 +1109,12 @@
 
     [detail](src/prob290wordpattern.md)
 
+292. 取石子游戏
+
+    [detail](src/prob292nimgame.md)
+
+    **智力题**
+
 295. 找数据流中的中位数
 
     [detail](src/prob295findmedianfromdatastream.md)

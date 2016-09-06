@@ -4,13 +4,13 @@
 
 ## 方法
 
-直接放弃，英文堪忧。题目中`For the ith round, you toggle every i bulb`还是是指没i个中的第i个。
+直接放弃，英文堪忧。题目中`For the ith round, you toggle every i bulb`还是是指每i个中的第i个。
 
 [share my o(1) solution with explanation](https://leetcode.com/discuss/91371/share-my-o-1-solution-with-explanation)写得很清晰了。
 
 重复一下。
 
-可以认为第第2轮开始就切换了。
+可以认为从第2轮开始就切换了。
 
 第2轮切换的为2i的灯泡，即2,4,6,8,.., 
 
@@ -41,4 +41,4 @@ public:
 
 ## 后记
 
-越来越发觉智障了。
+越来越觉得智障了。
