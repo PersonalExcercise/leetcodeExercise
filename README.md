@@ -395,6 +395,11 @@
     
     [detail](src/prob67addbinary.md)
 
+68. 生成对齐的文本
+    
+    [detail](src/prob68textjustification.md)
+
+    **字符串**
 
 69. 求一个整数的非精确平方根。 int sqrt(int x)
 
