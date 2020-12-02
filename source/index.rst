@@ -7,9 +7,16 @@ Welcome to leetcode-2021's documentation!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
    :caption: Contents:
+   :titlesonly:
 
+   list/index
+   type
+
+
+准备在3个月内，刷完 hot 100. 
+
+`leetcode-hot-100 <https://leetcode-cn.com/problemset/leetcode-hot-100/>`_
 
 
 Indices and tables
