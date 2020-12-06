@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>621. Task Scheduler &#8212; leetcode-2021 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="647. Palindromic Substrings" href="p647_palindromic_substrings.html" />
+    <link rel="prev" title="题目列表" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="task-scheduler">
+<h1>621. Task Scheduler<a class="headerlink" href="#task-scheduler" title="永久链接至标题">¶</a></h1>
+<p>给定一批任务（名字是英文大写字母），要求在 CPU 上安排这些任务的执行顺序，保证 n 个时间片上，
+不能执行同名的任务（没有合适任务安排，就用 <cite>idle`表示, `idle</cite> 不算任务）。</p>
+<p>求执行完这些任务，最少需要多少个时间片。</p>
+<p>例子： <cite>tasks = [“A”,”A”,”A”,”B”,”B”,”B”], n = 2, Output: 8</cite></p>
+<p><a class="reference external" href="https://leetcode-cn.com/problems/task-scheduler/">task scheduler</a></p>
+<div class="section" id="id2">
+<h2>关键点<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>记住就好：</p>
+<ol class="arabic">
+<li><p>贪心方法</p></li>
+<li><p>划分 <cite>n + 1</cite> 个桶，每次优先把 <cite>剩余数量最多</cite> 的任务给放进去, 由此，就可以得到最短需要的时间</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;]</span>
+<span class="c1"># n = 2, 就划分3个桶</span>
+<span class="c1"># | A | B | idle |</span>
+<span class="c1"># | A | B | idle |</span>
+<span class="c1"># | A | B |</span>
+<span class="c1"># total = 8</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>因为每次要取 <cite>top (n + 1)</cite> 多的任务，可以用 <cite>优先队列</cite> 来完成该需求</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>代码<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">leastInterval</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span> <span class="n">tasks</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// count tasks</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">taskCount</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">task</span> <span class="p">:</span> <span class="n">tasks</span><span class="p">)</span> <span class="p">{</span>
+            <span class="o">++</span><span class="n">taskCount</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">task</span> <span class="o">-</span> <span class="sc">&#39;A&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">taskCount</span><span class="p">](</span><span class="k">auto</span> <span class="n">l</span><span class="p">,</span> <span class="k">auto</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">taskCount</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">taskCount</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">r</span><span class="p">);</span> <span class="p">};</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">decltype</span><span class="p">(</span><span class="n">cmp</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">countDescQueue</span><span class="p">(</span><span class="n">cmp</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0U</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">taskCount</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">taskCount</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">countDescQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">taskIds</span><span class="p">{};</span>
+            <span class="n">taskIds</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">countDescQueue</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">auto</span> <span class="n">taskId</span> <span class="o">=</span> <span class="n">countDescQueue</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+                <span class="n">countDescQueue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+                <span class="n">taskIds</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">taskId</span><span class="p">);</span>
+                <span class="o">--</span><span class="n">taskCount</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">taskId</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">exeTaskId</span> <span class="p">:</span> <span class="n">taskIds</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">taskCount</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">exeTaskId</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">countDescQueue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">exeTaskId</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">countDescQueue</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">totalTime</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">totalTime</span> <span class="o">+=</span> <span class="n">taskIds</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">totalTime</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">leetcode-2021</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">题目列表</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../type.html">题目类型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p647_palindromic_substrings.html">647. Palindromic Substrings</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">621. Task Scheduler</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">题目列表</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Next: <a href="p647_palindromic_substrings.html" title="下一章">647. Palindromic Substrings</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, xuwei.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/list/p621_task_scheduler.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

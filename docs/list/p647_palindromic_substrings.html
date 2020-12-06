@@ -18,7 +18,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="739. Daily Temperatures" href="p739_daily_temperatures.html" />
-    <link rel="prev" title="题目列表" href="index.html" />
+    <link rel="prev" title="621. Task Scheduler" href="p621_task_scheduler.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -108,6 +108,105 @@
 </div>
 <div class="section" id="id3">
 <h2>代码<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">centerExpandImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">manacherImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">);</span>
+
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">countSubstrings</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// return centerExpandImpl(s);</span>
+        <span class="k">return</span> <span class="nf">manacherImpl</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">//</span>
+<span class="c1">// impl1. center-expand</span>
+<span class="c1">//</span>
+
+<span class="kt">int</span> <span class="nf">centerExpandImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">totalCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">strSz</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="k">auto</span> <span class="n">isEdgeEqual</span> <span class="o">=</span> <span class="p">[</span><span class="n">strSz</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">](</span><span class="kt">int</span> <span class="n">lCenter</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rCenter</span><span class="p">,</span> <span class="kt">int</span> <span class="n">radius</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">leftPos</span> <span class="o">=</span> <span class="n">lCenter</span> <span class="o">-</span> <span class="n">radius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">rightPos</span> <span class="o">=</span> <span class="n">rCenter</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">leftPos</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">rightPos</span> <span class="o">&lt;</span> <span class="n">strSz</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">leftPos</span><span class="p">)</span> <span class="o">==</span> <span class="n">s</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">rightPos</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="c1">// Odd case</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">oddCenterIdx</span> <span class="o">=</span> <span class="mi">0U</span><span class="p">;</span> <span class="n">oddCenterIdx</span> <span class="o">&lt;</span> <span class="n">strSz</span><span class="p">;</span> <span class="o">++</span><span class="n">oddCenterIdx</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">isEdgeEqual</span><span class="p">(</span><span class="n">oddCenterIdx</span><span class="p">,</span> <span class="n">oddCenterIdx</span><span class="p">,</span> <span class="n">radius</span><span class="p">))</span> <span class="p">{</span>
+            <span class="o">++</span><span class="n">totalCnt</span><span class="p">;</span>
+            <span class="o">++</span><span class="n">radius</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// even case</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">evenLCenterIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">evenLCenterIdx</span> <span class="o">&lt;</span> <span class="n">strSz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">evenLCenterIdx</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">isEdgeEqual</span><span class="p">(</span><span class="n">evenLCenterIdx</span><span class="p">,</span> <span class="n">evenLCenterIdx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">radius</span><span class="p">))</span> <span class="p">{</span>
+            <span class="o">++</span><span class="n">totalCnt</span><span class="p">;</span>
+            <span class="o">++</span><span class="n">radius</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">totalCnt</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//</span>
+<span class="c1">// impl2. manacher impl</span>
+<span class="c1">//</span>
+<span class="kt">int</span> <span class="nf">manacherImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">expandStrFn</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">s</span><span class="p">]()</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">expandStr</span><span class="p">{};</span>
+        <span class="k">auto</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2U</span> <span class="o">+</span> <span class="mi">1U</span><span class="p">;</span>
+        <span class="n">expandStr</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">expandStr</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="mi">1U</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">expandStr</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">expandStr</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">auto</span> <span class="n">expandStr</span> <span class="o">=</span> <span class="n">expandStrFn</span><span class="p">();</span>
+
+    <span class="k">auto</span> <span class="n">sz</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">expandStr</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">maxPalinL</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">maxPalinR</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">maxRadius</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="k">auto</span> <span class="n">isEdgeEqual</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">expandStr</span><span class="p">,</span> <span class="n">sz</span><span class="p">](</span><span class="kt">int</span> <span class="n">center</span><span class="p">,</span> <span class="kt">int</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">lEdge</span> <span class="o">=</span> <span class="n">center</span> <span class="o">-</span> <span class="n">radius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">auto</span> <span class="n">rEdge</span> <span class="o">=</span> <span class="n">center</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">lEdge</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">rEdge</span> <span class="o">&lt;</span> <span class="n">sz</span> <span class="o">&amp;&amp;</span> <span class="n">expandStr</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">lEdge</span><span class="p">)</span> <span class="o">==</span> <span class="n">expandStr</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">rEdge</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//</span>
+        <span class="c1">// l..j..C..i...r</span>
+        <span class="k">auto</span> <span class="n">knownPalinRadius</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">maxPalinR</span> <span class="o">?</span>
+            <span class="mi">1</span> <span class="o">:</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">maxPalinR</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxRadius</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">maxPalinR</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="n">maxPalinL</span><span class="p">));</span>
+        <span class="k">auto</span> <span class="n">testRadius</span> <span class="o">=</span> <span class="n">knownPalinRadius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">isEdgeEqual</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">testRadius</span><span class="p">))</span> <span class="p">{</span>
+            <span class="o">++</span><span class="n">testRadius</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// testRadius is not a valid palindromic, `- 1` is valid.</span>
+        <span class="k">auto</span> <span class="n">currentPalinRadius</span> <span class="o">=</span> <span class="n">testRadius</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">maxRadius</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">currentPalinRadius</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">currentPalinRadius</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">maxPalinR</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">maxPalinR</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">currentPalinRadius</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">maxPalinL</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">currentPalinRadius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// align back, = expandStr&#39;s max-radius / 2</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">originalMaxRadius</span><span class="p">{};</span>
+    <span class="n">originalMaxRadius</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">maxRadius</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span> <span class="n">maxRadius</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">originalMaxRadius</span><span class="p">),</span>
+        <span class="p">[](</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="p">});</span>
+    <span class="c1">// int sumVal = std::accumulate(originalMaxRadius.cbegin(), originalMaxRadius.cend(), 0);</span>
+    <span class="kt">int</span> <span class="n">sumVal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">reduce</span><span class="p">(</span><span class="n">originalMaxRadius</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span> <span class="n">originalMaxRadius</span><span class="p">.</span><span class="n">cend</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">sumVal</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -130,12 +229,13 @@
 <h3>导航</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">题目列表</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">647. Palindromic Substrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">题目列表</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../type.html">题目类型</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">647. Palindromic Substrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p621_task_scheduler.html">621. Task Scheduler</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../type.html">题目类型</a></li>
 </ul>
 
 <div class="relations">
@@ -143,7 +243,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">题目列表</a><ul>
-      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Previous: <a href="p621_task_scheduler.html" title="上一章">621. Task Scheduler</a></li>
       <li>Next: <a href="p739_daily_temperatures.html" title="下一章">739. Daily Temperatures</a></li>
   </ul></li>
   </ul></li>

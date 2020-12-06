@@ -20,3 +20,12 @@
    :titlesonly:
 
    list/p647*
+
+贪心
+=======================
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   list/p621*

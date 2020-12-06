@@ -89,5 +89,105 @@
 代码
 ===========================================
 
+.. code-block:: C++
+
+    int centerExpandImpl(const std::string& s);
+    int manacherImpl(const std::string& s);
+
+    class Solution {
+    public:
+        int countSubstrings(string s) {
+            // return centerExpandImpl(s);
+            return manacherImpl(s);
+        }
+    };
+
+    //
+    // impl1. center-expand 
+    //
+
+    int centerExpandImpl(const std::string& s) {
+        int totalCnt = 0;
+        int strSz = static_cast<int>(s.size());
+        auto isEdgeEqual = [strSz, &s](int lCenter, int rCenter, int radius) -> bool {
+            auto leftPos = lCenter - radius + 1;
+            auto rightPos = rCenter + radius - 1;
+            return leftPos >= 0 && rightPos < strSz && s.at(leftPos) == s.at(rightPos);
+        };
+        // Odd case
+        for (int oddCenterIdx = 0U; oddCenterIdx < strSz; ++oddCenterIdx) {
+            int radius = 1;
+            while (isEdgeEqual(oddCenterIdx, oddCenterIdx, radius)) {
+                ++totalCnt;
+                ++radius;
+            }
+        }
+        // even case
+        for (int evenLCenterIdx = 0; evenLCenterIdx < strSz - 1; ++evenLCenterIdx) {
+            int radius = 1;
+            while (isEdgeEqual(evenLCenterIdx, evenLCenterIdx + 1, radius)) {
+                ++totalCnt;
+                ++radius;
+            }
+        }
+        return totalCnt;
+    }
+
+    //
+    // impl2. manacher impl
+    //
+    int manacherImpl(const std::string& s) {
+        auto expandStrFn = [&s]() {
+            std::string expandStr{};
+            auto sz = s.size() * 2U + 1U;
+            expandStr.reserve(sz);
+            for (auto c : s) {
+                expandStr.append("#").append(1U, c);
+            }
+            expandStr.append("#");
+            return expandStr;
+        };
+        auto expandStr = expandStrFn();
+        
+        auto sz = static_cast<int>(expandStr.size());
+        int maxPalinL = 0;
+        int maxPalinR = -1;
+        std::vector<int> maxRadius(sz, 1);
+
+        auto isEdgeEqual = [&expandStr, sz](int center, int radius) {
+            auto lEdge = center - radius + 1;
+            auto rEdge = center + radius - 1;
+            return lEdge >= 0 && rEdge < sz && expandStr.at(lEdge) == expandStr.at(rEdge);
+        };
+
+        for (int i = 0; i < sz; ++i) {
+            // 
+            // l..j..C..i...r
+            auto knownPalinRadius = i > maxPalinR ? 
+                1 : 
+                std::min(maxPalinR - i + 1, maxRadius.at(maxPalinR - i + maxPalinL));
+            auto testRadius = knownPalinRadius + 1;
+            while (isEdgeEqual(i, testRadius)) {
+                ++testRadius;
+            }
+            // testRadius is not a valid palindromic, `- 1` is valid.
+            auto currentPalinRadius = testRadius - 1;
+            maxRadius.at(i) = currentPalinRadius;
+            if (i + currentPalinRadius - 1 > maxPalinR) {
+                maxPalinR = i + currentPalinRadius - 1;
+                maxPalinL = i - currentPalinRadius + 1;
+            }
+        }
+
+        // align back, = expandStr's max-radius / 2
+        std::vector<int> originalMaxRadius{};
+        originalMaxRadius.reserve(sz);
+        std::transform(maxRadius.cbegin(), maxRadius.cend(), std::back_inserter(originalMaxRadius), 
+            [](int v) { return v / 2; });
+        // int sumVal = std::accumulate(originalMaxRadius.cbegin(), originalMaxRadius.cend(), 0);
+        int sumVal = std::reduce(originalMaxRadius.cbegin(), originalMaxRadius.cend());
+        return sumVal;
+    }
+
 
 .. _`manacher-oi-wiki`: https://oi-wiki.org/string/manacher/
