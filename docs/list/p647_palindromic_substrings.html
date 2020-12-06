@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>647. Palindromic Substrings &#8212; leetcode-2021 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="739. Daily Temperatures" href="p739_daily_temperatures.html" />
+    <link rel="prev" title="题目列表" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="palindromic-substrings">
+<h1>647. Palindromic Substrings<a class="headerlink" href="#palindromic-substrings" title="永久链接至标题">¶</a></h1>
+<p>找到一个字符串中，所有的回文子串个数。回文串间下标不同就认为不同。</p>
+<div class="section" id="id1">
+<h2>关键点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>所谓回文，就是 <span class="math notranslate nohighlight">\(s\)</span> 与 <span class="math notranslate nohighlight">\(s\)</span> 的反转字符串相同。 回文可分为 奇数长度 和 偶数长度 两种，
+奇数回文串是基于中心字符对称的；偶数回文串基于中心空白对称（或者说对称中心是 中间 的 2 个字符）。</p>
+<div class="section" id="id2">
+<h3>方法1：中心扩展法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>最朴素的做法当然是暴力选定区间 ＆＆ 判定区间内子串是不是回文。</p>
+<p>考虑到回文的特性，更好的做法是中心扩展法：分别考虑奇数长度和偶数长度：</p>
+<ul class="simple">
+<li><p>奇数长度，1个字符当然是回文串；然后左、右端点分别向外扩展并检查是否是回文； 1 个 for 循环即可判定到以此为中心的奇数回文串长度；</p></li>
+<li><p>偶数长度，可将　当前位置的前一个位置 和 当前位置 作为中心，然后同样向外扩展并检查是否是回文。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这个检查逻辑和上面的奇数长度是可以复用的，接口即定义为：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_equal</span><span class="p">(</span><span class="n">left_center</span><span class="p">,</span> <span class="n">right_center</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+
+<span class="c1"># 其中奇数长度下， left_center 和 right_center 是一样的； radius 就是要中心往外扩展长度，也被称为半径；</span>
+<span class="c1"># 半径为1时仅包含中心自己。</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="manacher">
+<h3>方法2：manacher 方法<a class="headerlink" href="#manacher" title="永久链接至标题">¶</a></h3>
+<p>从前面的叙述中，我们其实可以发现一个等价概念：</p>
+<p>以 <code class="docutils literal notranslate"><span class="pre">i</span></code> 为中心位置的、包含的回文串个数，等于 <code class="docutils literal notranslate"><span class="pre">i</span></code> 为中心的最长回文串的长度（也需要奇偶分别考虑，但都一样）。</p>
+<p>进一步的，题目要求整个串包含的回文子串的个数， 也就是求 以各个位置为中心的 奇、偶 最长回文串的长度的和。</p>
+<p>而求 各个位置的奇偶最长回文串长度，可以用 manacher 在线性时间内完成；</p>
+<p>关于 manacher 算法，可以见 <a class="reference external" href="https://oi-wiki.org/string/manacher/">manacher-oi-wiki</a> .</p>
+<p>这个页面说得已经非常好了，代码也实在简洁。这里罗列下关键点：</p>
+<ol class="arabic">
+<li><p>manacher 算法的核心，是利用已有的最长回文串信息，来减少不必要的检查：</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>记录了整个字符串内，到达最右端的回文串的边界 r, 以及对应的左边界 l</p></li>
+<li><p>在边界内的位置，其关于 <cite>l … r</cite> 有一个对称点 <cite>j</cite>, 这个点的回文串长度信息已经求过了；所以可以用它来辅助！</p>
+<blockquote>
+<div><p>位置信息如下（一定记住这个图！）：</p>
+<p><cite>l…j….C….i…r</cite></p>
+<p><cite>………|………</cite> (对称关系)</p>
+<p>r 为到达最右边边界的回文串范围;
+<cite>i</cite> 关于 <cite>C</cite> 的对称点 <cite>j</cite>, 因为 <cite>l … r</cite> 内是关于 <cite>C</cite> 对称的，
+所以 <cite>i</cite> 的回文信息 和 <cite>j</cite> 就有关！</p>
+</div></blockquote>
+</li>
+<li><p>前提是这个位置 <cite>i</cite> 在 <cite>r</cite> 内； 否则，就没有额外信息了，得回退到中心扩展法；</p></li>
+<li><p>即使在 <cite>r</cite> 内， 也只能保证 <cite>min(r - i, d[j])</cite> 这个长度内的回文信息，超过这个长度，还是要用中心扩展法</p></li>
+<li><p>即使如此，因为 <cite>r</cite> 的存在，中心扩展法最多迭代 <code class="docutils literal notranslate"><span class="pre">n</span></code> 次， 所以整个算法复杂度是 <cite>O(n)</cite></p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>manacher 一开始用辅助字符来填充原始串（n 个长度，填充 n +１　个辅助字符），从而将奇偶长度的考虑，化解为仅需要考虑新串的奇数情况。</p>
+<blockquote>
+<div><p>假设辅助字符为　<cite>#</cite>.</p>
+<p>原串是 <cite>ab</cite>, 新串为 <cite>#a#b#</cite>；</p>
+<p>对新串第一个 <cite>#</cite> 的奇数回文串，就对应原串 <cite>a</cite> 的偶数回文串 （因为是开始位置，不存在）；
+对新串第二个 <cite>a</cite> 的奇数回文串，对应原串 <cite>a</cite> 的奇数回文串。
+对新串第三个 <cite>#</cite> 的奇数回文串，对应原串 <cite>b</cite> 为中心的偶数回文串（即以 <cite>ab</cite> 为中心）；
+对新串第四个 <cite>b</cite> 的奇数回文串，对应原串 <cite>b</cite> 为中新的奇数回文串。</p>
+<p>还注意到，<strong>新串上的最长回文串长度，与原始串的长度关系为 `r_original = r_new / 2`</strong></p>
+<p>上面的情况，新串半径分别是 <cite>1, 2, 1, 2, 1</cite>, 则原始串半径为 <cite>0, 1, 0, 1, 0</cite>; 与真实情况一致。</p>
+</div></blockquote>
+</li>
+<li><p>半径大小与下标的关系：半径为1，对应的是自己，下标不变！一定记住 manacher 存的是每个位置的最长回文串的半径；</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>代码<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">leetcode-2021</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">题目列表</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">647. Palindromic Substrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../type.html">题目类型</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">题目列表</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Next: <a href="p739_daily_temperatures.html" title="下一章">739. Daily Temperatures</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, xuwei.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/list/p647_palindromic_substrings.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
