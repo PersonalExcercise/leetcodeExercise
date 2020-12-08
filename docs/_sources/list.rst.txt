@@ -1,9 +1,0 @@
-
-题目列表
-====================
-
-.. toctree::
-   :glob:
-   :titlesonly:
-
-   prob_list/*
