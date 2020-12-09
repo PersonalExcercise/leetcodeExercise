@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>581. Shortest Unsorted Continuous Subarray &#8212; leetcode-2021 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="617. Merge Two Binary Trees" href="p617_merge2binary_tree.html" />
+    <link rel="prev" title="题目列表" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="shortest-unsorted-continuous-subarray">
+<h1>581. Shortest Unsorted Continuous Subarray<a class="headerlink" href="#shortest-unsorted-continuous-subarray" title="永久链接至标题">¶</a></h1>
+<p>最短未排序的子数组长度。 <a class="reference external" href="https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/">link</a></p>
+<div class="section" id="id1">
+<h2>关键点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><dl class="simple">
+<dt>选择排序法：通过选择排序，试图找每个元素在排序后的位置；</dt><dd><p>如果它要被交换，那么这时记录它的位置l，和要被交换的元素位置r；
+所有l的最小值、所有r的最大值，就是这个最短区间！</p>
+</dd>
+</dl>
+</li>
+<li><p>直接排序比较法： 比较直观的方法</p></li>
+<li><dl>
+<dt>栈方法： 从1方法可知，只需记录违背顺序时、要交换时位置信息即可。</dt><dd><p>这可以通过栈在 O(n) 时间获得。</p>
+<p>从左往右遍历，维护递增栈；如果发现要入栈元素不满足递增，那就是违背顺序，被弹出元素的位置，就是l的值；</p>
+<p>再从右往左遍历，维护1个递减栈，处理类似，得到r的值。</p>
+<p>问题： 是否可以遍历一次就可以呢？ 简单想了下，觉得应该是不行的——栈方法只能保证遍历顺序下，要入栈的元素可以得到正确的位置，但是被弹栈的元素的正确位置得不到，也就
+无法在一次遍历中，拿到l、r两个边界；</p>
+<p>事实证明，的确也不行——一次遍历时记录l, r，代码提交结果显示结果错误。需要遍历2次；</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>拐点法：从1、3可推知，从左往右遍历，将违背顺序的元素中，也即每个下降拐点处，</dt><dd><p>所有拐点的低点的最小值在正确顺序的位置，就是l；
+所有拐点的高点的最大值，在正确顺序的位置，就是r；</p>
+<p>所以先一遍，求得拐点的最大值、最小值；
+然后再直接遍历数组，求得该最大值、最小值在原数组的位置（也即违背顺序的位置），也就是r、l的值。</p>
+<p>只需要 O(n)时间， O（1）空间，最是能体现题目的真谛吧。</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>代码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">selectionImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">stackImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">specializationImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">);</span>
+
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">findUnsortedSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// return selectionImpl(nums);</span>
+        <span class="k">return</span> <span class="n">stackImpl</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+        <span class="c1">// return specializationImpl(nums);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// will TLE</span>
+<span class="kt">int</span> <span class="nf">selectionImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">sz</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span>
+        <span class="mi">0</span> <span class="o">:</span>
+        <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 执行用时：132 ms, 在所有 C++ 提交中击败了8.70% 的用户</span>
+<span class="kt">int</span> <span class="nf">stackImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sz</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">sz</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ascStack</span><span class="p">{};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ascStack</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">ascStack</span><span class="p">.</span><span class="n">top</span><span class="p">())</span> <span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ascStack</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
+            <span class="n">ascStack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">ascStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">descStack</span><span class="p">{};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">descStack</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">descStack</span><span class="p">.</span><span class="n">top</span><span class="p">())</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">descStack</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
+            <span class="n">descStack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">descStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span>
+        <span class="mi">0</span> <span class="o">:</span>
+        <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 72 ms, 在所有 C++ 提交中击败了67.56%</span>
+<span class="kt">int</span> <span class="nf">specializationImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+    <span class="kt">int</span> <span class="n">descMinVal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">ascMaxVal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">descMinVal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">descMinVal</span><span class="p">,</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+            <span class="n">ascMaxVal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">ascMaxVal</span><span class="p">,</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">descMinVal</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">descMinVal</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">l</span><span class="p">))</span> <span class="p">{</span>
+        <span class="o">++</span><span class="n">l</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ascMaxVal</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">r</span><span class="p">))</span> <span class="p">{</span>
+        <span class="o">--</span><span class="n">r</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">leetcode-2021</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">题目列表</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../type.html">题目类型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p647_palindromic_substrings.html">647. Palindromic Substrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p621_task_scheduler.html">621. Task Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p617_merge2binary_tree.html">617. Merge Two Binary Trees</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">581. Shortest Unsorted Continuous Subarray</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">题目列表</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Next: <a href="p617_merge2binary_tree.html" title="下一章">617. Merge Two Binary Trees</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, xuwei.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/list/p581_shortest_unsorted_continuous_subarray.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
