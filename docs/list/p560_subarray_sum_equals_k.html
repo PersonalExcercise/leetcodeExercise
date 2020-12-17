@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>560. Subarray Sum Equals K &#8212; leetcode-2021 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="581. Shortest Unsorted Continuous Subarray" href="p581_shortest_unsorted_continuous_subarray.html" />
+    <link rel="prev" title="543. Diameter of Binary Tree" href="p543_diameter_of_binary_tree.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="subarray-sum-equals-k">
+<h1>560. Subarray Sum Equals K<a class="headerlink" href="#subarray-sum-equals-k" title="永久链接至标题">¶</a></h1>
+<p>计算给定数组里，满足连续子数组和为K的子数组个数。</p>
+<div class="section" id="id1">
+<h2>关键点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>最差的方法，可以在 <span class="math notranslate nohighlight">\(O(n^2)\)</span> 内完成，这需要利用到历史和信息，从而避免重复计算。</p>
+<p>进一步的，可以根据动态规划的思想，利用 hash 来记录历史信息，得到 <span class="math notranslate nohighlight">\(O(n)\)</span> 的方法。</p>
+<p>递推式需要利用前缀数组。</p>
+<ul class="simple">
+<li><p>设数组为 a, 长度为 n</p></li>
+<li><p>定义从 0 到 i 位置的连续子数组 a[0…i] 和为 <cite>P[i]</cite>.</p></li>
+<li><dl class="simple">
+<dt>满足如下定义</dt><dd><ul>
+<li><p>为了方便，定义 P[-1] = 0</p></li>
+<li><p><span class="math notranslate nohighlight">\(P[i] = p[i - 1] + a[i]， i \in [0, n)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>进一步的，上述递推式可扩展为</dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(P[i] = P[j - 1] + a[j...i], i \in [0, n), j \in [0, i]\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>有了上面的递推式，我们只要对每一个 <span class="math notranslate nohighlight">\(P[i], i \in [0, n)\)</span>, 令 <cite>a[j…i] == k(即目标和)</cite>，
+看有多少个 <cite>j</cite> 满足条件即可。
+注意到这种定义下， <cite>P[i]</cite> 可以线性时间求出（基于 <cite>P[i] = P[i - 1] + a[i]</cite>），为定值，记为 <cite>m</cite> ,
+而 <cite>a[j…i] = k</cite>, 那么其实就是等价的看，有多少个 <cite>P[j - 1] == k - m</cite>.</p>
+<p>有多少个 <cite>P[j - 1]</cite> 的值，其实也就是看满足 <span class="math notranslate nohighlight">\(P[x] == k -m , x \in [0, i)\)</span> 有多少个，
+这在 <cite>P[i]</cite> 之前已经算好了。</p>
+<p>这时，因为是计数，我们拿 hash 缓存一下 <cite>P[x] == V</cite> 的计数，即
+<span class="math notranslate nohighlight">\(hash[V] = \sum_{x=0}^{i - 1} P[x] == V\)</span></p>
+<p>特别的，初始时 <cite>hash[0] = 1</cite>, 因为初始条件 <cite>P[-1] == 0</cite>.</p>
+</div>
+<div class="section" id="id2">
+<h2>代码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">leetcode-2021</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">题目列表</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../type.html">题目类型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p647_palindromic_substrings.html">647. Palindromic Substrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p621_task_scheduler.html">621. Task Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p617_merge2binary_tree.html">617. Merge Two Binary Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p543_diameter_of_binary_tree.html">543. Diameter of Binary Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p581_shortest_unsorted_continuous_subarray.html">581. Shortest Unsorted Continuous Subarray</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">560. Subarray Sum Equals K</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">题目列表</a><ul>
+      <li>Previous: <a href="p543_diameter_of_binary_tree.html" title="上一章">543. Diameter of Binary Tree</a></li>
+      <li>Next: <a href="p581_shortest_unsorted_continuous_subarray.html" title="下一章">581. Shortest Unsorted Continuous Subarray</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, xuwei.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/list/p560_subarray_sum_equals_k.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
