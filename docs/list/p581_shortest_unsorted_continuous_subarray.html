@@ -18,7 +18,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="617. Merge Two Binary Trees" href="p617_merge2binary_tree.html" />
-    <link rel="prev" title="题目列表" href="index.html" />
+    <link rel="prev" title="560. Subarray Sum Equals K" href="p560_subarray_sum_equals_k.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -79,7 +79,7 @@
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">findUnsortedSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// return selectionImpl(nums);</span>
-        <span class="k">return</span> <span class="n">stackImpl</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nf">stackImpl</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
         <span class="c1">// return specializationImpl(nums);</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -88,7 +88,7 @@
 <span class="kt">int</span> <span class="nf">selectionImpl</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">sz</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
@@ -121,7 +121,7 @@
         <span class="n">ascStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">descStack</span><span class="p">{};</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -196,7 +196,10 @@
 <li class="toctree-l2"><a class="reference internal" href="p647_palindromic_substrings.html">647. Palindromic Substrings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p621_task_scheduler.html">621. Task Scheduler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p617_merge2binary_tree.html">617. Merge Two Binary Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p543_diameter_of_binary_tree.html">543. Diameter of Binary Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p538_convert_bst_to_greater_tree.html">538. Convert BST to Greater Tree</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">581. Shortest Unsorted Continuous Subarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p560_subarray_sum_equals_k.html">560. Subarray Sum Equals K</a></li>
 </ul>
 </li>
 </ul>
@@ -206,7 +209,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">题目列表</a><ul>
-      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Previous: <a href="p560_subarray_sum_equals_k.html" title="上一章">560. Subarray Sum Equals K</a></li>
       <li>Next: <a href="p617_merge2binary_tree.html" title="下一章">617. Merge Two Binary Trees</a></li>
   </ul></li>
   </ul></li>
