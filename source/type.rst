@@ -53,3 +53,24 @@
 
    list/p581*
    list/p560*
+
+
+集合
+==========================
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   list/p494*
+
+   
+动态规划
+==========================
+   
+   .. toctree::
+      :glob:
+      :titlesonly:
+   
+      list/p494*
+      

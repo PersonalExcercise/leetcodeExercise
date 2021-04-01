@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[神题] 494. Target Sum &#8212; leetcode-2021 1.0.0 文档</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="538. Convert BST to Greater Tree" href="p538_convert_bst_to_greater_tree.html" />
+    <link rel="prev" title="题目列表" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="target-sum">
+<h1>[神题] 494. Target Sum<a class="headerlink" href="#target-sum" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://leetcode-cn.com/problems/target-sum/">https://leetcode-cn.com/problems/target-sum/</a></p>
+<p>一个数字集合，里面只有非负数；现在要给每个数字加正号或者负号，然后加起来。
+问有多少种方法和为 给定的值 S.</p>
+<div class="section" id="id1">
+<h2>关键点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>首先我们要知道，肯定存在目标和达不到的情况：</p>
+<ol class="arabic">
+<li><p>如果 <span class="math notranslate nohighlight">\(|S|\)</span> 比集合内所有数加起来还大，那肯定不行</p></li>
+<li><p>某些特殊和一定取不到： 例如对集合 <span class="math notranslate nohighlight">\({1, 1, 1}, S = 2\)</span>, 那是怎么加减都不行的。</p>
+<blockquote>
+<div><p>这其实暗示我们，S 和 数组应该有某种关系。</p>
+</div></blockquote>
+</li>
+</ol>
+<p>第 0 层，那就是枚举递归。 <span class="math notranslate nohighlight">\(O(2^n)\)</span></p>
+<p>第 1 层，动态规划。建模为背包问题。背包问题，就是挨个看能不能装，求最大的价值。这里就是挨个看，正号有多少种，负号有多少中。
+第一维当然是第 K 个物品，第二维，是加、减可能的和。需要分析下和的上下限。和可能是负数，这是编码稍微复杂的点。</p>
+<p>第 2 层，这个可就有意思了。因为只有加、减号，那么其实可以把数分成两个集合，左、右集合。
+左右集合都直接加和，然后目标和为 左边集合的和 - 右边集合的和。这是完全等价的。
+这能干什么？ 能揭示 S 和 集合的关系！</p>
+<p>显然， sum_left 是一个整数，那么就要求 <span class="math notranslate nohighlight">\(S + sum_set\)</span> 必须得是偶数。看看前面的的  <span class="math notranslate nohighlight">\({1, 1, 1}, S = 2\)</span> ， 不满足
+该条件，果然不行！</p>
+<p>有了这个转换，问题变成了： 从集合里挑出一些元素构成 <span class="math notranslate nohighlight">\(left\)</span>, 使得其和为 <span class="math notranslate nohighlight">\((S + sum_set) / 2\)</span>.</p>
+<p>这个就是更标准的背包问题了。</p>
+</div>
+<div class="section" id="id2">
+<h2>代码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>有点偷懒，只实现了第二层的方法。 而且还遇到了问题。主要是初始化的时候，遇到了为 0 的边界case：</p>
+<p>对 0 元素，选、不选对应都到 1 个和（0），所以要用 <cite>+=</cite>, 如果直接赋值为 1 ，就错了。</p>
+<p>建模： <span class="math notranslate nohighlight">\(dp[i][j]\)</span> 表示处理第 i 个元素的时候，和为 j 的方法数。可以与 <span class="math notranslate nohighlight">\(dp[i-1][x]\)</span> 递推上。</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">leetcode-2021</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">题目列表</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../type.html">题目类型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p647_palindromic_substrings.html">647. Palindromic Substrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p621_task_scheduler.html">621. Task Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p617_merge2binary_tree.html">617. Merge Two Binary Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p543_diameter_of_binary_tree.html">543. Diameter of Binary Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p538_convert_bst_to_greater_tree.html">538. Convert BST to Greater Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p581_shortest_unsorted_continuous_subarray.html">581. Shortest Unsorted Continuous Subarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p560_subarray_sum_equals_k.html">560. Subarray Sum Equals K</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">[神题] 494. Target Sum</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">[神题] 494. Target Sum</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">题目列表</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Next: <a href="p538_convert_bst_to_greater_tree.html" title="下一章">538. Convert BST to Greater Tree</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, xuwei.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/list/p494_target_sum.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
