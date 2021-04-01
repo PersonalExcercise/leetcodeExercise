@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>题目列表 &#8212; leetcode-2021 1.0.0 文档</title>
+    <title>461. Hamming Distance &#8212; leetcode-2021 1.0.0 文档</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="461. Hamming Distance" href="p461_hamming_distance.html" />
-    <link rel="prev" title="Welcome to leetcode-2021’s documentation!" href="../index.html" />
+    <link rel="next" title="[神题] 494. Target Sum" href="p494_target_sum.html" />
+    <link rel="prev" title="题目列表" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,21 +35,20 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="id1">
-<h1>题目列表<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="p461_hamming_distance.html">461. Hamming Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p494_target_sum.html">[神题] 494. Target Sum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p538_convert_bst_to_greater_tree.html">538. Convert BST to Greater Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p543_diameter_of_binary_tree.html">543. Diameter of Binary Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p560_subarray_sum_equals_k.html">560. Subarray Sum Equals K</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p581_shortest_unsorted_continuous_subarray.html">581. Shortest Unsorted Continuous Subarray</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p617_merge2binary_tree.html">617. Merge Two Binary Trees</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p621_task_scheduler.html">621. Task Scheduler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p647_palindromic_substrings.html">647. Palindromic Substrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p739_daily_temperatures.html">739. Daily Temperatures</a></li>
-</ul>
+  <div class="section" id="hamming-distance">
+<h1>461. Hamming Distance<a class="headerlink" href="#hamming-distance" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://leetcode-cn.com/problems/hamming-distance/">https://leetcode-cn.com/problems/hamming-distance/</a></p>
+<p>算 2 个 int 的比特位间的汉明距离。</p>
+<div class="section" id="id1">
+<h2>关键点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>主要是记忆：</p>
+<ol class="arabic simple">
+<li><p><cite>xor</cite> 不同位置变为1</p></li>
+<li><p>布赖恩·克尼根算法： x &amp; (x - 1) 可以去掉x的最低位的比特 1</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>代码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 </div>
 </div>
 
@@ -72,8 +71,8 @@
 <h3>导航</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">题目列表</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p461_hamming_distance.html">461. Hamming Distance</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">题目列表</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">461. Hamming Distance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p494_target_sum.html">[神题] 494. Target Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p538_convert_bst_to_greater_tree.html">538. Convert BST to Greater Tree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p543_diameter_of_binary_tree.html">543. Diameter of Binary Tree</a></li>
@@ -92,8 +91,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="上一章">Welcome to leetcode-2021’s documentation!</a></li>
-      <li>Next: <a href="p461_hamming_distance.html" title="下一章">461. Hamming Distance</a></li>
+  <li><a href="index.html">题目列表</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">题目列表</a></li>
+      <li>Next: <a href="p494_target_sum.html" title="下一章">[神题] 494. Target Sum</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -127,7 +128,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/list/index.rst.txt"
+      <a href="../_sources/list/p461_hamming_distance.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -73,4 +73,12 @@
       :titlesonly:
    
       list/p494*
-      
+
+trick
+===========================
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   list/p461*
